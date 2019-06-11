@@ -166,8 +166,8 @@ include_once("MenuProfessor.php");
             <div class="ln_solid"></div>
             <div class="form-group">
               <div class="col-md-6 col-md-offset-3">
-                <input type="button" name="cancelar" class="btn btn-primary" value="Cancelar">
-                <input type="submit" name="enviar" class="btn btn-success" value="Enviar">
+                <input type="button" name="cancelar" class="btn btn-primary" onClick="window.location.href='IndexProfessor.php'" value="Cancelar">
+                <input type="submit" name="enviar" class="btn btn-success"  value="Enviar">
               </div>
             </div>
 
