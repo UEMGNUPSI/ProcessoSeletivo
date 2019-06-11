@@ -1,9 +1,9 @@
 <?php
-	include "DAO/conexao.php";
+	include "../DAO/conexao.php";
 	session_start();
 		if(!isset($_SESSION['nome']))
 		{
-			header('location: login.php');
+			header('location: ../loguin.php');
 		}
 ?>
 
@@ -21,16 +21,16 @@
     <title>Processos Seletivos </title>
 
     <!-- Bootstrap -->
-    <link href="CSS/bootstrap.min.css" rel="stylesheet">
+    <link href="../CSS/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
-    <link href="CSS/font-awesome.min.css" rel="stylesheet">
+    <link href="../CSS/font-awesome.min.css" rel="stylesheet">
     <!-- NProgress -->
-    <link href="CSS/nprogress.css" rel="stylesheet">
+    <link href="../CSS/nprogress.css" rel="stylesheet">
     <!-- jQuery custom content scroller -->
-    <link href="CSS/jquery.mCustomScrollbar.min.css" rel="stylesheet" />
+    <link href="../CSS/jquery.mCustomScrollbar.min.css" rel="stylesheet" />
 
     <!-- Custom Theme Style -->
-    <link href="CSS/custom.min.css" rel="stylesheet">
+    <link href="../CSS/custom.min.css" rel="stylesheet">
 </head>
 
 <body class="nav-md">
@@ -48,7 +48,7 @@
                     <!-- menu profile quick info -->
                     <div class="profile clearfix">
                         <div class="profile_pic">
-                            <img src="IMAGENS/user.png" alt="..." class="img-circle profile_img">
+                            <img src="../IMAGENS/user.png" alt="..." class="img-circle profile_img">
                         </div>
                         <div class="profile_info">
                             <span>Bem vindo,</span>
@@ -67,51 +67,39 @@
                                 <li><a><i class="fa "></i> Professor <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
                                         <li><a href="CadastroProfessor.php">Cadastrar</a></li>
-                                        <li><a href="#">Alterar</a></li>
                                         <li><a href="#">Consultar</a></li>
-                                        <li><a href="#">Excluir</a></li>
                                     </ul>
                                 </li>
                                 <li><a><i class="fa "></i> Curso <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
                                         <li><a href="#">Cadastrar</a></li>
-                                        <li><a href="#">Alterar</a></li>
                                         <li><a href="#">Consultar</a></li>
-                                        <li><a href="#">Excluir</a></li>
-                                    </ul>
+                                        </ul>
                                 </li>
                                 <li><a><i class="fa "></i> Linha de Pesquisa <span
                                             class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
                                         <li><a href="#">Cadastrar</a></li>
-                                        <li><a href="#">Alterar</a></li>
                                         <li><a href="#">Consultar</a></li>
-                                        <li><a href="#">Excluir</a></li>
                                     </ul>
                                 </li>
                                 <li><a><i class="fa "></i> Vinculo <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
                                         <li><a href="#">Cadastrar</a></li>
-                                        <li><a href="#">Alterar</a></li>
                                         <li><a href="#">Consultar</a></li>
-                                        <li><a href="#">Excluir</a></li>
                                     </ul>
                                 </li>
                                 <li><a><i class="fa "></i> Processo Seletivo <span
                                             class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
                                         <li><a href="#">Cadastrar</a></li>
-                                        <li><a href="#">Alterar</a></li>
                                         <li><a href="#">Consultar</a></li>
-                                        <li><a href="#">Excluir</a></li>
                                     </ul>
                                 </li>
                                 <li><a><i class="fa "></i>Tipo Processo <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
                                         <li><a href="#">Cadastrar</a></li>
-                                        <li><a href="#">Alterar</a></li>
                                         <li><a href="#">Consultar</a></li>
-                                        <li><a href="#">Excluir</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -151,7 +139,7 @@
                             <li class="">
                                 <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown"
                                     aria-expanded="false">
-                                    <img src="IMAGENS/user.png" alt=""><?php echo $_SESSION['nome']; ?>
+                                    <img src="../IMAGENS/user.png" alt=""><?php echo $_SESSION['nome']; ?>
                                     <span class=" fa fa-angle-down"></span>
                                 </a>
                                 <ul class="dropdown-menu dropdown-usermenu pull-right">
@@ -162,7 +150,7 @@
                                         </a>
                                     </li>
                                     <li><a href="javascript:;">Ajuda</a></li>
-                                    <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Sair</a></li>
+                                    <li><a href="../loguin.php"><i class="fa fa-sign-out pull-right"></i> Sair</a></li>
                                 </ul>
                             </li>
 
@@ -171,38 +159,9 @@
             </div>
             <!-- page content -->
             <div class="right_col" role="main">
-                
-            </div>
-
-            <!-- /page content -->
-
-            <!-- footer content -->
-            <footer>
-                <div class="pull-right">
-                    RODAPÉ
-                </div>
-                <div class="clearfix"></div>
-            </footer>
-            <!-- /footer content -->
-        </div>
-    </div>
-
-    <!-- jQuery -->
-    <script src="JS/jquery.min.js"></script> <!-- apareceu subtopicos -->
-    <!-- Bootstrap -->
-    <script src="JS/bootstrap.min.js"></script>
-    <!-- FastClick -->
-    <script src="JS/fastclick.js"></script>
-    <!-- NProgress -->
-    <script src="JS/nprogress.js"></script>
-    <!-- jQuery custom content scroller -->
-    <script src="JS/jquery.mCustomScrollbar.concat.min.js"></script>
-
-
-
-    <!-- Custom Theme Scripts -->
-    <script src="JS/custom.min.js"></script>
+  
 
 </body>
 
-</html>
+</html>    
+            

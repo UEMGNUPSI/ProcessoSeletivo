@@ -62,7 +62,7 @@ if (($usuario == $user || $usuario == $user2 ) && $senha == $pass && ($tipo == 1
     $_SESSION['nome'] = $nome;
 	$_SESSION['user'] = $user;
 
-	header('location: ../indexProfessor.php'); 
+	header('location: ../administrador/IndexProfessor.php'); 
 }
 
 
