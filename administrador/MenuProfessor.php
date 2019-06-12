@@ -67,7 +67,7 @@
                                 <li><a><i class="fa "></i> Professor <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
                                         <li><a href="CadastroProfessor.php">Cadastrar</a></li>
-                                        <li><a href="#">Consultar</a></li>
+                                        <li><a href="ConsultarProfessor.php">Consultar</a></li>
                                     </ul>
                                 </li>
                                 <li><a><i class="fa "></i> Curso <span class="fa fa-chevron-down"></span></a>
