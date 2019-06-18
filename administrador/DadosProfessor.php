@@ -6,8 +6,10 @@ include_once ("MenuProfessor.php");
 <?php
 include "../DAO/conexao.php";
 
-$idProfessor = filter_input(INPUT_GET,'idProfessor', FILTER_SANITIZE_NUMBER_INT);
-$sql = "SELECT * FROM Professor WHERE idProfessor = '$idProfessor' ";
+$idProfessor=$_GET['idProfessor'];
+$sql = "SELECT * FROM Professor WHERE idProfessor = '$idProfessor' " ;
+
+
 
 $res = $con-> query($sql);
 $linha = $res->fetch_assoc();
@@ -39,8 +41,15 @@ $linha = $res->fetch_assoc();
         </div>
         <div class="x_content">
  
-          <form action="AlterarProfessor.php" method="POST" onsubmit="return(verifica())" class="form-horizontal form-label-left">
+          <form action="AlterarProfessor.php?" method="POST" onsubmit="return(verifica())" class="form-horizontal form-label-left">
             <span class="section">Dados Pessoais</span>
+
+            <div class="item form-group">
+            <label for="staticEmail" class="control-label col-md-3 col-sm-3 col-xs-12">Código</label>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+      <input type="text" readonly class="form-control col-md-7 col-xs-12" id="staticEmail" name="codigo" value="<?php echo $linha['idProfessor']; ?>">
+    </div>
+  </div>
 
             <div class="item form-group">
               <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nome">Nome
@@ -178,8 +187,10 @@ $linha = $res->fetch_assoc();
             <div class="ln_solid"></div>
             <div class="form-group">
               <div class="col-md-6 col-md-offset-3">
+                   
+        
                 <input type="button" name="cancelar" class="btn btn-primary" onClick="window.location.href='ConsultarProfessor.php'" value="Cancelar">
-                <input type="submit" name="enviar" class="btn btn-success"  value="Editar">
+                <input type="submit" name="Enviar" class="btn btn-success"  value="Alterar">
               </div>
             </div>
 
