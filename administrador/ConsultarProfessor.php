@@ -67,7 +67,7 @@ $resultado_consultaProf = mysqli_query($con, $result_consultaProf);
             else {echo "Professor Administrador";} ?></td>
 		<td>
 
-     <?php  echo "<a  href='DadosProfessor.php?idProfessor=" .$rows_consultaProf['idProfessor'] .  "'>Editar</a>";  ?>
+     <?php  echo "<a class='btn btn-danger'  href='DadosProfessor.php?idProfessor=" .$rows_consultaProf['idProfessor'] .  "'>Editar</a>";  ?>
     <?php  echo "<a  href='ExcluirProfessor.php?idProfessor=" .$rows_consultaProf['idProfessor']. "'> Excluir</a>";  ?>
 	</td>
 	</tr>
