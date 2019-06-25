@@ -55,7 +55,7 @@ $resultado_consultaCurso = mysqli_query($con, $result_consultaCurso);
               <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nome">Nome
               </label>
               <div class="col-md-6 col-sm-6 col-xs-12">
-                <input class="form-control col-md-7 col-xs-12" maxlength="250" name="nome" required="required" value="<?php echo $linha['nome']; ?>"type="text">
+                <input class="form-control col-md-7 col-xs-12" maxlength="250" name="nome" required="required" value="<?php echo $linha['nomePesquisa']; ?>"type="text">
               </div>
             </div>
             <div class="item form-group">
@@ -76,7 +76,8 @@ $resultado_consultaCurso = mysqli_query($con, $result_consultaCurso);
               
   <?php while($rows_consultaCurso = mysqli_fetch_assoc($resultado_consultaCurso)){ ?>
 
-<option value="<?php echo $rows_consultaCurso['idCurso'];?>"><?php echo utf8_encode ($rows_consultaCurso['nomeCurso']);?></option>
+<option value="<?php echo $rows_consultaCurso['idCurso'];?>" <?php if ($linha['idCurso']==$rows_consultaCurso['idCurso']){ echo "selected";}?>  >
+<?php echo utf8_encode ($rows_consultaCurso['nomeCurso']);?></option>
 
 <?php } ?>	
 

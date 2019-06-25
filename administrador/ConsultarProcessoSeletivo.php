@@ -4,18 +4,17 @@ include_once("MenuProfessor.php");
 ?>
 
 <?php
-	include "../DAO/conexao.php";
-
-      
-$result_consultaLinhaPesquisa="SELECT L.idLinhaPesquisa,
-L.nomePesquisa, 
-L.descricao ,
-C.nomeCurso 
-FROM linhadepesquisa L, curso C 
-WHERE L.idCurso = C.idCurso  ";
-$resultado_consultaLinhaPesquisa = mysqli_query($con, $result_consultaLinhaPesquisa);
+    include "../DAO/conexao.php";
+    
+ 
+$result_consultaProcesso="SELECT P.idProcessoSeletivo,P.nomeProcesso, P.descricao, P.dataInicio, P.dataFinal, P.horaInicio, P.coordenador, C.nomeCurso 
+FROM processoseletivo P, curso C
+WHERE P.idCurso = C.idCurso ";
+$resultado_consultaProcesso = mysqli_query($con, $result_consultaProcesso);
 
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -32,7 +31,7 @@ $resultado_consultaLinhaPesquisa = mysqli_query($con, $result_consultaLinhaPesqu
 <div class="column content">
       
 <div class="title_left">
-                <h3>Consulta Linha de Pesquisa</h3>
+                <h3>Consulta Processo Seletivo</h3>
               </div>
 
               <div class="title_right">
@@ -48,27 +47,34 @@ $resultado_consultaLinhaPesquisa = mysqli_query($con, $result_consultaLinhaPesqu
             </div>
 
             <div class="x_content">
-                    <table id="datatable" class="table table-striped table-bordered">
+                  <table  id="datatable" class="table table-striped table-bordered">
                       <thead>
                         <tr>
-                        <th scope="col">Nome</th>
-                        <th scope="col">Descrição</th>
+                        <th scope="col">Nome Processo Seletivo</th>
+                        <th scope="col">Descricao</th>
+                        <th scope="col">Data Inicio</th>
+                        <th scope="col">Coordenador</th>
+                        
                         <th scope="col">Curso</th>
-                        <th scope="col"></th>
-                         </tr>
+                        
+                        <th></th>
                        </thead>   
 
 <tbody>
-	<?php while($rows_consultaLinhaPesquisa = mysqli_fetch_assoc($resultado_consultaLinhaPesquisa)){ 
+	<?php while($rows_consultaProcesso = mysqli_fetch_assoc($resultado_consultaProcesso)){ 
         ?>
     <tr>
-		<td><?php echo $rows_consultaLinhaPesquisa['nomePesquisa'];?></td>
-		<td><?php echo $rows_consultaLinhaPesquisa['descricao'];?></td>
-		<td><?php echo utf8_encode($rows_consultaLinhaPesquisa['nomeCurso']);?></td>
-       
-	<td>
-     <?php  echo "<a class='btn btn-success'  href='DadosLinhaPesquisa.php?idLinhaPesquisa=" .$rows_consultaLinhaPesquisa['idLinhaPesquisa'] .  "'>Editar</a>";  ?>
-    <?php  echo "<a  class='btn btn-danger' href='ExcluirLinhaPesquisa.php?idLinhaPesquisa=" .$rows_consultaLinhaPesquisa['idLinhaPesquisa']. "'> Excluir</a>";  ?>
+		<td><?php echo $rows_consultaProcesso['nomeProcesso'];?></td>
+    
+		<td><?php echo $rows_consultaProcesso['descricao'];?></td>
+    <td><?php echo $rows_consultaProcesso['dataInicio'];?></td>
+		<td><?php echo $rows_consultaProcesso['coordenador'];?></td>
+  
+		<td><?php echo  utf8_encode($rows_consultaProcesso['nomeCurso']);?></td>
+	
+<td>
+     <?php  echo "<a class='btn btn-success'  href='DadosProcesso.php?idProcessoSeletivo=" .$rows_consultaProcesso['idProcessoSeletivo'] .  "'>Editar</a>";  ?>
+    <?php  echo "<a class='btn btn-danger' href='ExcluirProcesso.php?idProcessoSeletivo=" .$rows_consultaProcesso['idProcessoSeletivo']. "'> Excluir</a>";  ?>
 	</td>
 	</tr>
 

@@ -6,16 +6,12 @@ include_once("MenuProfessor.php");
 <?php
 	include "../DAO/conexao.php";
 
-      
-$result_consultaLinhaPesquisa="SELECT L.idLinhaPesquisa,
-L.nomePesquisa, 
-L.descricao ,
-C.nomeCurso 
-FROM linhadepesquisa L, curso C 
-WHERE L.idCurso = C.idCurso  ";
-$resultado_consultaLinhaPesquisa = mysqli_query($con, $result_consultaLinhaPesquisa);
+$result_consultaCurso="select * from Curso";
+$resultado_consultaCurso = mysqli_query($con, $result_consultaCurso);
 
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -32,7 +28,7 @@ $resultado_consultaLinhaPesquisa = mysqli_query($con, $result_consultaLinhaPesqu
 <div class="column content">
       
 <div class="title_left">
-                <h3>Consulta Linha de Pesquisa</h3>
+                <h3>Consulta Curso</h3>
               </div>
 
               <div class="title_right">
@@ -48,27 +44,22 @@ $resultado_consultaLinhaPesquisa = mysqli_query($con, $result_consultaLinhaPesqu
             </div>
 
             <div class="x_content">
-                    <table id="datatable" class="table table-striped table-bordered">
+                  <table  id="datatable" class="table table-striped table-bordered">
                       <thead>
                         <tr>
-                        <th scope="col">Nome</th>
-                        <th scope="col">Descrição</th>
-                        <th scope="col">Curso</th>
-                        <th scope="col"></th>
-                         </tr>
+                        <th scope="col">Nome do Curso</th>
+                        <th></th>
                        </thead>   
 
 <tbody>
-	<?php while($rows_consultaLinhaPesquisa = mysqli_fetch_assoc($resultado_consultaLinhaPesquisa)){ 
+	<?php while($rows_consultaCurso = mysqli_fetch_assoc($resultado_consultaCurso)){ 
         ?>
     <tr>
-		<td><?php echo $rows_consultaLinhaPesquisa['nomePesquisa'];?></td>
-		<td><?php echo $rows_consultaLinhaPesquisa['descricao'];?></td>
-		<td><?php echo utf8_encode($rows_consultaLinhaPesquisa['nomeCurso']);?></td>
-       
-	<td>
-     <?php  echo "<a class='btn btn-success'  href='DadosLinhaPesquisa.php?idLinhaPesquisa=" .$rows_consultaLinhaPesquisa['idLinhaPesquisa'] .  "'>Editar</a>";  ?>
-    <?php  echo "<a  class='btn btn-danger' href='ExcluirLinhaPesquisa.php?idLinhaPesquisa=" .$rows_consultaLinhaPesquisa['idLinhaPesquisa']. "'> Excluir</a>";  ?>
+		<td><?php echo utf8_encode ($rows_consultaCurso['nomeCurso']);?></td>
+	
+<td>
+     <?php  echo "<a class='btn btn-success'  href='DadosCurso.php?idCurso=" .$rows_consultaCurso['idCurso'] .  "'>Editar</a>";  ?>
+    <?php  echo "<a class='btn btn-danger' href='ExcluirCurso.php?idCurso=" .$rows_consultaCurso['idCurso']. "'> Excluir</a>";  ?>
 	</td>
 	</tr>
 

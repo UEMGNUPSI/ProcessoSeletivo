@@ -20,7 +20,7 @@ $senha = $_POST["senha"];
 $acesso =  $_POST["acesso"];
 
 
-$sql = "UPDATE Professor set nome ='$nome', cpf='$cpf' , rg='$rg' , cep='$cep' , estado='$estado',cidade='$cidade',
+$sql = "UPDATE Professor set nomeProfessor ='$nome', cpf='$cpf' , rg='$rg' , cep='$cep' , estado='$estado',cidade='$cidade',
 bairro='$bairro',endereco='$endereco',numero='$numero',
 complemento='$complemento',telefone='$telefone',celular='$celular',email='$email',senha='$senha',perfilUsuario='$acesso' where idProfessor = '$idProfessor' "; 
 

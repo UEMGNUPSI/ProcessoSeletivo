@@ -2,7 +2,7 @@
 include_once "../DAO/conexao.php";
 
 $idProfessor = $_POST["select_professor"];
-$idLinhaPesquisa = $_POST["select_linhaopesquisa"];
+$idLinhaPesquisa = $_POST["select_linhapesquisa"];
 
 $sql = "INSERT INTO vinculo (idProfessor,idLinhaPesquisa) VALUES ($idProfessor, $idLinhaPesquisa)";
 

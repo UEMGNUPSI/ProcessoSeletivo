@@ -20,7 +20,7 @@ $acesso = $_POST["acesso"];
 
 
 if ($acesso==1){
-$sql = "INSERT INTO professor (nome,cpf,rg,cep,estado,cidade,bairro,endereco,numero,
+$sql = "INSERT INTO professor (nomeProfessor,cpf,rg,cep,estado,cidade,bairro,endereco,numero,
 complemento,telefone,celular,email,senha,perfilUsuario) 
 VALUES ('$nome','$cpf','$rg','$cep','$estado','$cidade','$bairro','$endereco','$numero'
 ,'$complemento','$telefone','$celular','$email','$senha','$acesso')";
@@ -29,7 +29,7 @@ VALUES ('$nome','$cpf','$rg','$cep','$estado','$cidade','$bairro','$endereco','$
 
 else if ($acesso==2){
 
-$sql = "INSERT INTO professor (nome,cpf,rg,cep,estado,cidade,bairro,endereco,numero,
+$sql = "INSERT INTO professor (nomeProfessor,cpf,rg,cep,estado,cidade,bairro,endereco,numero,
   complemento,telefone,celular,email,senha,perfilUsuario) 
     VALUES ('$nome','$cpf','$rg','$cep','$estado','$cidade','$bairro','$endereco','$numero'
    ,'$complemento','$telefone','$celular','$email','$senha','$acesso')";

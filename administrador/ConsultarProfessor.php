@@ -59,7 +59,7 @@ $resultado_consultaProf = mysqli_query($con, $result_consultaProf);
 	<?php while($rows_consultaProf = mysqli_fetch_assoc($resultado_consultaProf)){ 
         ?>
     <tr>
-		<td><?php echo $rows_consultaProf['nome'];?></td>
+		<td><?php echo $rows_consultaProf['nomeProfessor'];?></td>
 		<td><?php echo $rows_consultaProf['cpf'];?></td>
 		<td><?php echo $rows_consultaProf['email'];?></td>
         <td><?php if ($rows_consultaProf['perfilUsuario'] == 1){
@@ -67,8 +67,8 @@ $resultado_consultaProf = mysqli_query($con, $result_consultaProf);
             else {echo "Professor Administrador";} ?></td>
 		<td>
 
-     <?php  echo "<a class='btn btn-danger'  href='DadosProfessor.php?idProfessor=" .$rows_consultaProf['idProfessor'] .  "'>Editar</a>";  ?>
-    <?php  echo "<a  href='ExcluirProfessor.php?idProfessor=" .$rows_consultaProf['idProfessor']. "'> Excluir</a>";  ?>
+     <?php  echo "<a class='btn btn-success'  href='DadosProfessor.php?idProfessor=" .$rows_consultaProf['idProfessor'] .  "'>Editar</a>";  ?>
+    <?php  echo "<a  class='btn btn-danger' href='ExcluirProfessor.php?idProfessor=" .$rows_consultaProf['idProfessor']. "'> Excluir</a>";  ?>
 	</td>
 	</tr>
 

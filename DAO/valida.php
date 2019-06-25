@@ -1,6 +1,7 @@
 <?php
 		include "conexao.php";
 
+		session_start();
 	$acesso =$_POST['Tipo'];
 	$usuario = $_POST['usuario'];
 	$senha = $_POST['senha'];
@@ -47,7 +48,7 @@ $sql = "SELECT * FROM professor WHERE email = '$usuario' or cpf ='$usuario' and 
 	$linha = $res->fetch_assoc();
 
 $id = $linha['idProfessor'];
-$nome = $linha['nome'];
+$nome = $linha['nomeProfessor'];
 $user = $linha['email'];
 $pass = $linha['senha'];
 $tipo = $linha['perfilUsuario'];
@@ -69,7 +70,7 @@ if (($usuario == $user || $usuario == $user2 ) && $senha == $pass && ($tipo == 1
 else
 
 {
-	header('location: ../loguin.php');
+	header('location: ../loguin.php?i=0');
 }
 
  }

@@ -8,8 +8,8 @@ include_once("MenuProfessor.php");
 
       
 $result_consultaVinculo="SELECT V.idVinculo,
-L.nome, 
-P.nome 
+P.nomeProfessor ,
+L.nomePesquisa
 FROM linhadepesquisa L, professor P, vinculo V 
 WHERE V.idProfessor = P.idProfessor and
 V.idLinhaPesquisa = L.idLinhaPesquisa  ";
@@ -32,7 +32,7 @@ $resultado_consultaVinculo = mysqli_query($con, $result_consultaVinculo);
 <div class="column content">
       
 <div class="title_left">
-                <h3>Consulta Linha de Pesquisa</h3>
+                <h3>Consulta Vinculo</h3>
               </div>
 
               <div class="title_right">
@@ -61,8 +61,8 @@ $resultado_consultaVinculo = mysqli_query($con, $result_consultaVinculo);
 	<?php while($rows_consultaVinculo  = mysqli_fetch_assoc($resultado_consultaVinculo )){ 
         ?>
     <tr>
-		<td><?php echo $rows_consultaLinhaPesquisa['nome'];?></td>
-		<td><?php echo $rows_consultaLinhaPesquisa['nome'];?></td>
+		<td><?php echo $rows_consultaVinculo['nomeProfessor'];?></td>
+		<td><?php echo $rows_consultaVinculo['nomePesquisa'];?></td>
        
 	<td>
      <?php  echo "<a class='btn btn-success'  href='DadosVinculo.php?idVinculo=" .$rows_consultaVinculo['idVinculo'] .  "'>Editar</a>";  ?>

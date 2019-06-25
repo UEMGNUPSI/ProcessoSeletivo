@@ -19,7 +19,7 @@ include_once("MenuProfessor.php");
         </div>
         <div class="x_content">
  
-          <form action="envioCurso.php" method="POST" onsubmit="return(verifica())" class="form-horizontal form-label-left">
+          <form action="EnvioCurso.php" method="POST" onsubmit="return(verifica())" class="form-horizontal form-label-left">
             <span class="section">Dados para curso</span>
 
             <div class="item form-group">

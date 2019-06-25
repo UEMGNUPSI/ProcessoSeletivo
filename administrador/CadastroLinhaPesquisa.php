@@ -31,7 +31,7 @@ $resultado_curso= mysqli_query($con, $result_curso);
         </div>
         <div class="x_content">
  
-          <form action="envioLinhaPesquisa.php" method="POST"  class="form-horizontal form-label-left"> 
+          <form action="EnvioLinhaPesquisa.php" method="POST"  class="form-horizontal form-label-left"> 
  
           <div class="item form-group">
               <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nome">Nome

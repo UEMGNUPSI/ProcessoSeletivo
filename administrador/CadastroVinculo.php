@@ -34,7 +34,7 @@ $resultado_linhaPesquisa= mysqli_query($con, $result_linhaPesquisa);
         </div>
         <div class="x_content">
  
-          <form action="envioVinculo.php" method="POST"  class="form-horizontal form-label-left"> 
+          <form action="EnvioVinculo.php" method="POST"  class="form-horizontal form-label-left"> 
  
          
           <div class="item form-group">
@@ -47,7 +47,7 @@ $resultado_linhaPesquisa= mysqli_query($con, $result_linhaPesquisa);
               
   <?php while($rows_professor = mysqli_fetch_assoc($resultado_professor)){ ?>
 
-<option value="<?php echo $rows_professor['idProfessor'];?>"><?php echo utf8_encode ($rows_professor['nome']);?></option>
+<option value="<?php echo $rows_professor['idProfessor'];?>"><?php echo  ($rows_professor['nome']);?></option>
 
 <?php } ?>	
 
@@ -66,7 +66,7 @@ $resultado_linhaPesquisa= mysqli_query($con, $result_linhaPesquisa);
               
   <?php while($rows_linhaPesquisa = mysqli_fetch_assoc($resultado_linhaPesquisa)){ ?>
 
-<option value="<?php echo $rows_linhaPesquisa['idLinhaPesquisa'];?>"><?php echo utf8_encode ($rows_linhaPesquisa['nome']);?></option>
+<option value="<?php echo $rows_linhaPesquisa['idLinhaPesquisa'];?>"><?php echo  ($rows_linhaPesquisa['nomePesquisa']);?></option>
 
 <?php } ?>	
 

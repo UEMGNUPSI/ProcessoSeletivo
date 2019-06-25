@@ -5,7 +5,7 @@ $nome = $_POST["nome"];
 $descricao = $_POST["descricao"];
 $idCurso = $_POST["select_curso"];
 
-$sql = "INSERT INTO linhadepesquisa (nome,descricao,idCurso) VALUES ('$nome', '$descricao',$idCurso)";
+$sql = "INSERT INTO linhadepesquisa (nomePesquisa,descricao,idCurso) VALUES ('$nome', '$descricao',$idCurso)";
 
 
 

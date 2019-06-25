@@ -9,7 +9,7 @@ $idCurso = $_POST["select_curso"];
 
 
 
-$sql = "UPDATE linhadepesquisa set nome ='$nome', descricao='$descricao' , idCurso=$idCurso  where idLinhaPesquisa= '$idLinhaPesquisa' "; 
+$sql = "UPDATE linhadepesquisa set nomePesquisa ='$nome', descricao='$descricao' , idCurso=$idCurso  where idLinhaPesquisa= '$idLinhaPesquisa' "; 
 
 
 
