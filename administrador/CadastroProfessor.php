@@ -48,7 +48,7 @@ include_once("MenuProfessor.php");
               <label class="control-label col-md-3 col-sm-3 col-xs-12" for="rg">RG
               </label>
               <div class="col-md-6 col-sm-6 col-xs-12">
-                <input class="form-control col-md-7 col-xs-12" maxlength="20"name="rg" type="text" required="required"  onkeyup="mascara('##.###.###-#',this,event,true)">
+                <input class="form-control col-md-7 col-xs-12" maxlength="20"name="rg" type="text" required="required"  >
               </div>
             </div>
   
@@ -60,7 +60,7 @@ include_once("MenuProfessor.php");
               <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cep">CEP
               </label>
               <div class="col-md-6 col-sm-6 col-xs-12">
-                <input class="form-control col-md-7 col-xs-12" maxlength="15" name="cep" type="text">
+                <input class="form-control col-md-7 col-xs-12" maxlength="15" name="cep" type="text" onkeyup="mascara('##.###-###',this,event,true)">
               </div>
             </div>
 

@@ -39,20 +39,21 @@
                 <input type="password" class="form-control" placeholder="Senha" required="" name="senha"/>
                 </div>
                     <div>
-                        <label class="form-control">Tipo de usuário</label>
+           
+                    <h2 >Tipo de Usuário    </h2>
                 <select class="form-control" id=selectTipoPerfil name="Tipo">
     <option value="1">Professor</option>
     <option value="0">Candidato</option>
 
 </select>
 </div>
-        
+<br>
 
-              <div>
-             <input type="submit" class="btn btn-default submit" value="Entrar">
-                <a class="reset_pass" href="#">Esqueceu sua senha?</a>
-              </div>
 
+<div>
+  <input type="submit"class="btn btn-primary" value="Entrar" >
+</div>
+            
               <div class="clearfix"></div>
 
               <div class="separator">

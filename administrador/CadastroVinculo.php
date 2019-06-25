@@ -47,7 +47,7 @@ $resultado_linhaPesquisa= mysqli_query($con, $result_linhaPesquisa);
               
   <?php while($rows_professor = mysqli_fetch_assoc($resultado_professor)){ ?>
 
-<option value="<?php echo $rows_professor['idProfessor'];?>"><?php echo  ($rows_professor['nome']);?></option>
+<option value="<?php echo $rows_professor['idProfessor'];?>"><?php echo  ($rows_professor['nomeProfessor']);?></option>
 
 <?php } ?>	
 
