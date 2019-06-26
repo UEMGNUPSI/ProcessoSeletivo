@@ -26,8 +26,7 @@ $linha = $res->fetch_assoc();
 
 <body>
 
-  <div class="row">
-    <div class="col-md-12 col-sm-12 col-xs-12">
+
       <div class="x_panel">
         <div class="x_title">
           <h2>Cadastro Professor </h2>
@@ -44,12 +43,9 @@ $linha = $res->fetch_assoc();
           <form action="AlterarProfessor.php?" method="POST" onsubmit="return(verifica())" class="form-horizontal form-label-left">
             <span class="section">Dados Pessoais</span>
 
-            <div class="item form-group">
-            <label for="staticEmail" class="control-label col-md-3 col-sm-3 col-xs-12">Código</label>
-      <div class="col-md-6 col-sm-6 col-xs-12">
-      <input type="text" readonly class="form-control col-md-7 col-xs-12" id="staticEmail" name="codigo" value="<?php echo $linha['idProfessor']; ?>">
-    </div>
-  </div>
+          
+      <input type="hidden" name="codigo" value="<?php echo $linha['idProfessor']; ?>">
+
 
             <div class="item form-group">
               <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nome">Nome

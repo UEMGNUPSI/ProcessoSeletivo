@@ -34,16 +34,7 @@ $resultado_consultaProcesso = mysqli_query($con, $result_consultaProcesso);
                 <h3>Consulta Processo Seletivo</h3>
               </div>
 
-              <div class="title_right">
-                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-                  <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Buscar por...">
-                    <span class="input-group-btn">
-                      <button class="btn btn-default" type="button">Buscar</button>
-                    </span>
-                  </div>
-                </div>
-              </div>
+            
             </div>
 
             <div class="x_content">
@@ -51,8 +42,8 @@ $resultado_consultaProcesso = mysqli_query($con, $result_consultaProcesso);
                       <thead>
                         <tr>
                         <th scope="col">Nome Processo Seletivo</th>
-                        <th scope="col">Descricao</th>
-                        <th scope="col">Data Inicio</th>
+                        <th scope="col">Data Início</th>
+                        <th scope="col">Data Final</th>
                         <th scope="col">Coordenador</th>
                         
                         <th scope="col">Curso</th>
@@ -66,8 +57,8 @@ $resultado_consultaProcesso = mysqli_query($con, $result_consultaProcesso);
     <tr>
 		<td><?php echo $rows_consultaProcesso['nomeProcesso'];?></td>
     
-		<td><?php echo $rows_consultaProcesso['descricao'];?></td>
-    <td><?php echo $rows_consultaProcesso['dataInicio'];?></td>
+		<td><?php echo $rows_consultaProcesso['dataInicio'];?></td>
+    <td><?php echo $rows_consultaProcesso['dataFinal'];?></td>
 		<td><?php echo $rows_consultaProcesso['coordenador'];?></td>
   
 		<td><?php echo  utf8_encode($rows_consultaProcesso['nomeCurso']);?></td>

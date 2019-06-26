@@ -8,26 +8,29 @@ include_once("MenuProfessor.php");
 
 <head>
 
+<script>
+function validaSenha (input){ 
+    if (input.value != document.getElementById('senha').value) {
+    input.setCustomValidity('Repita a senha corretamente');
+  } else {
+    input.setCustomValidity('');
+  }
+} 
+
+</script>
+
 </head>
 
 <body>
 
-  <div class="row">
-    <div class="col-md-12 col-sm-12 col-xs-12">
-      <div class="x_panel">
+<div class="x_panel">
         <div class="x_title">
           <h2>Cadastro Professor </h2>
-          <ul class="nav navbar-right panel_toolbox">
-            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-            </li>
-            <li><a class="close-link"><i class="fa fa-close"></i></a>
-            </li>
-          </ul>
           <div class="clearfix"></div>
         </div>
         <div class="x_content">
  
-          <form action="EnvioProfessor.php" method="POST" onsubmit="return(verifica())" class="form-horizontal form-label-left">
+          <form action="EnvioProfessor.php" method="POST"  onsubmit="return(verifica())" class="form-horizontal form-label-left">
             <span class="section">Dados Pessoais</span>
 
             <div class="item form-group">
@@ -147,9 +150,18 @@ include_once("MenuProfessor.php");
               <label for="password" class="control-label col-md-3">Senha
               </label>
               <div class="col-md-6 col-sm-6 col-xs-12">
-                <input type="password" name="senha" maxlength="50" class="form-control col-md-7 col-xs-12" required="required">
+                <input type="password" id="senha" name="senha" maxlength="255" class="form-control col-md-7 col-xs-12" required="required">
               </div>
             </div>
+
+            <div class="item form-group">
+              <label for="password" class="control-label col-md-3">Confirma a senha
+              </label>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <input type="password" name="senha_confirma" maxlength="255" class="form-control col-md-7 col-xs-12" required="required" oninput="validaSenha(this)" >
+              </div>
+            </div>
+
 
             <div class="item form-group">
               <label class="control-label col-md-3 col-sm-3 col-xs-12" for="acesso">Acesso
@@ -167,15 +179,14 @@ include_once("MenuProfessor.php");
             <div class="form-group">
               <div class="col-md-6 col-md-offset-3">
                 <input type="button" name="cancelar" class="btn btn-primary" onClick="window.location.href='IndexProfessor.php'" value="Cancelar">
-                <input type="submit" name="enviar" class="btn btn-success"  value="Enviar">
+                <input type="submit" name="enviar" class="btn btn-success"   value="Enviar">
               </div>
             </div>
-
+<br>
           </form>
         </div>
-      </div>
-    </div>
-
+</div>
+</div>
                                <script src="../JS/mascaras.js"></script>
 </body>
 
