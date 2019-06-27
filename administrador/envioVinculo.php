@@ -10,7 +10,7 @@ $sql = "INSERT INTO vinculo (idProfessor,idLinhaPesquisa) VALUES ($idProfessor, 
 
 if ($con->query($sql) === TRUE){
  
-	echo "<script>alert('Cadastro realizado com sucesso!');window.location='CadastrarVinculo.php'</script>";
+	echo "<script>alert('Cadastro realizado com sucesso!');window.location='CadastroVinculo.php'</script>";
 } else {
 	echo "Erro para inserir: " . $con->error;
 
