@@ -15,10 +15,10 @@
 	$id = $linha['idCandidato'];
 	$nome = $linha['nome'];
 	$user = $linha['email'];
-	$pass = $linha['senha'];
+	$senha_db = $linha['senha'];
 	$user2 = $linha['cpf'];
 	
-	if (($usuario == $user || $usuario == $user2 ) && $senha == $pass && $acesso == 0)
+	if (($usuario == $user || $usuario == $user2 ) && $senha == $senha_db && $acesso == 0)
 
 	{
 	
@@ -42,7 +42,7 @@
  else if($acesso==1){
 
 
-$sql = "SELECT * FROM professor WHERE email = '$usuario' or cpf ='$usuario' and senha = '$senha' ";
+$sql = "SELECT * FROM professor WHERE email = '$usuario' or cpf ='$usuario' ";
 
 	$res = $con->query($sql);
 	$linha = $res->fetch_assoc();
@@ -50,11 +50,11 @@ $sql = "SELECT * FROM professor WHERE email = '$usuario' or cpf ='$usuario' and 
 $id = $linha['idProfessor'];
 $nome = $linha['nomeProfessor'];
 $user = $linha['email'];
-$pass = $linha['senha'];
+$senha_db = $linha['senha'];
 $tipo = $linha['perfilUsuario'];
 $user2 = $linha['cpf'];
 
-if (($usuario == $user || $usuario == $user2 ) && $senha == $pass && ($tipo == 1 || $tipo == 2))
+if (($usuario == $user || $usuario == $user2 ) && password_verify($senha,$senha_db) && ($tipo == 1 || $tipo == 2))
 
 {
 
@@ -70,7 +70,7 @@ if (($usuario == $user || $usuario == $user2 ) && $senha == $pass && ($tipo == 1
 else
 
 {
-	header('location: ../loguin.php?i=0');
+	header('location: ../loguin.php');
 }
 
  }
