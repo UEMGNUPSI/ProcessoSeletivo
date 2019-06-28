@@ -5,11 +5,12 @@ include_once("MenuProfessor.php");
 
 <?php
     include "../DAO/conexao.php";
-    
+
+
  
-$result_consultaProcesso="SELECT P.idProcessoSeletivo,P.nomeProcesso, P.descricao, P.dataInicio, P.dataFinal, P.horaInicio, P.coordenador, C.nomeCurso 
-FROM processoseletivo P, curso C
-WHERE P.idCurso = C.idCurso ";
+$result_consultaProcesso="SELECT PC.idProcessoSeletivo,PC.nomeProcesso, PC.descricao, PC.dataInicio, PC.dataFinal, PC.horaInicio, P.nomeProfessor, C.nomeCurso 
+FROM processoseletivo PC, curso C, Professor P
+WHERE PC.idProfessor = P.idProfessor and PC.idCurso = C.idCurso ";
 $resultado_consultaProcesso = mysqli_query($con, $result_consultaProcesso);
 
 ?>
@@ -30,10 +31,7 @@ $resultado_consultaProcesso = mysqli_query($con, $result_consultaProcesso);
 
 <div class="column content">
       
-<div class="title_left">
-                <h3>Consulta Processo Seletivo</h3>
-              </div>
-
+                <h3><center>Consulta Processo Seletivo</center></h3>
             
             </div>
 
@@ -41,11 +39,10 @@ $resultado_consultaProcesso = mysqli_query($con, $result_consultaProcesso);
                   <table  id="datatable" class="table table-striped table-bordered">
                       <thead>
                         <tr>
-                        <th scope="col">Nome Processo Seletivo</th>
+                        <th scope="col">Processo Seletivo</th>
                         <th scope="col">Data Início</th>
                         <th scope="col">Data Final</th>
                         <th scope="col">Coordenador</th>
-                        
                         <th scope="col">Curso</th>
                         
                         <th></th>
@@ -59,13 +56,12 @@ $resultado_consultaProcesso = mysqli_query($con, $result_consultaProcesso);
     
 		<td><?php echo $rows_consultaProcesso['dataInicio'];?></td>
     <td><?php echo $rows_consultaProcesso['dataFinal'];?></td>
-		<td><?php echo $rows_consultaProcesso['coordenador'];?></td>
-  
-		<td><?php echo  utf8_encode($rows_consultaProcesso['nomeCurso']);?></td>
+		<td><?php echo $rows_consultaProcesso['nomeProfessor'];?></td>
+  	<td><?php echo $rows_consultaProcesso['nomeCurso'];?></td>
 	
 <td>
      <?php  echo "<a class='btn btn-success'  href='DadosProcesso.php?idProcessoSeletivo=" .$rows_consultaProcesso['idProcessoSeletivo'] .  "'>Editar</a>";  ?>
-    <?php  echo "<a class='btn btn-danger' href='ExcluirProcesso.php?idProcessoSeletivo=" .$rows_consultaProcesso['idProcessoSeletivo']. "'> Excluir</a>";  ?>
+    <?php  echo "<a class='btn btn-danger' href='ExcluirProcesso.php?idProcessoSeletivo=" .$rows_consultaProcesso['idProcessoSeletivo']. "' onclick=\"return confirm('Tem certeza que deseja deletar esse registro?');\"> Excluir</a>";  ?>
 	</td>
 	</tr>
 

@@ -31,9 +31,7 @@ $resultado_consultaVinculo = mysqli_query($con, $result_consultaVinculo);
 
 <div class="column content">
       
-<div class="title_left">
-                <h3>Consulta Vinculo</h3>
-              </div>
+                <h3><center>Consulta Vinculo</center></h3>
 
            
             </div>
@@ -57,7 +55,7 @@ $resultado_consultaVinculo = mysqli_query($con, $result_consultaVinculo);
        
 	<td>
      <?php  echo "<a class='btn btn-success'  href='DadosVinculo.php?idVinculo=" .$rows_consultaVinculo['idVinculo'] .  "'>Editar</a>";  ?>
-    <?php  echo "<a  class='btn btn-danger' href='ExcluirVinculo.php?idVinculo=" .$rows_consultaVinculo['idVinculo']. "'> Excluir</a>";  ?>
+    <?php  echo "<a  class='btn btn-danger' href='ExcluirVinculo.php?idVinculo=" .$rows_consultaVinculo['idVinculo']. "'onclick=\"return confirm('Tem certeza que deseja deletar esse registro?');\"> Excluir</a>";  ?>
 	</td>
 	</tr>
 

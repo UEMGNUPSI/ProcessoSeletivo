@@ -9,13 +9,14 @@ include "../DAO/conexao.php";
 $idProcessoSeletivo=$_GET['idProcessoSeletivo'];
 $sql = "SELECT * FROM processoSeletivo WHERE idProcessoSeletivo = $idProcessoSeletivo " ;
 
+$res = $con-> query($sql);
+$linha = $res->fetch_assoc();
 
 $result_curso ="SELECT * FROM curso";
 $resultado_curso= mysqli_query($con, $result_curso);
 
-$res = $con-> query($sql);
-$linha = $res->fetch_assoc();
-
+$result_professor ="SELECT * FROM professor";
+$resultado_professor= mysqli_query($con, $result_professor);   
 
 ?>
 
@@ -31,14 +32,8 @@ $linha = $res->fetch_assoc();
 
       <div class="x_panel">
         <div class="x_title">
-          <h2>Cadastro Processo Seletivo </h2>
-          <ul class="nav navbar-right panel_toolbox">
-            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-            </li>
-            <li><a class="close-link"><i class="fa fa-close"></i></a>
-            </li>
-          </ul>
-          <div class="clearfix"></div>
+          <h1><center>Editar Processo Seletivo</center> </h1>
+                   <div class="clearfix"></div>
         </div>
         <div class="x_content">
  
@@ -102,12 +97,24 @@ $linha = $res->fetch_assoc();
             </div>
 
             <div class="item form-group">
-              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="coordenador">Coordenador
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="acesso">Coordenador
               </label>
-              <div class="col-md-6 col-sm-6 col-xs-12">
-                <input class="form-control col-md-7 col-xs-12" maxlength="50"name="coordenador" value="<?php echo $linha['coordenador']?>" type="text">
-              </div>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <select class="form-control" id=selectTipoPerfil name="coordenador" required="required">
+        
+              
+  <?php while($rows_professor = mysqli_fetch_assoc($resultado_professor)){ ?>
+
+<option value="<?php echo $rows_professor['idProfessor'];?>"<?php if ($linha['idProfessor']==$rows_professor['idProfessor']){ echo "selected";}?>
+ ><?php echo  $rows_professor['nomeProfessor'];?></option>
+
+<?php } ?>	
+
+</select>
+</div>
             </div>
+          
+
             <div class="item form-group">
               <label class="control-label col-md-3 col-sm-3 col-xs-12" for="acesso">Curso
               </label>
@@ -118,7 +125,7 @@ $linha = $res->fetch_assoc();
   <?php while($rows_curso = mysqli_fetch_assoc($resultado_curso)){ ?>
 
 <option value="<?php echo $rows_curso['idCurso'];?>"<?php if ($linha['idCurso']==$rows_curso['idCurso']){ echo "selected";}?>
- ><?php echo utf8_encode ($rows_curso['nomeCurso']);?></option>
+ ><?php echo  $rows_curso['nomeCurso'];?></option>
 
 <?php } ?>	
 

@@ -2,8 +2,12 @@
 
 include_once("MenuProfessor.php");
 include_once("../DAO/conexao.php");
+
 $result_curso ="SELECT * FROM curso";
 $resultado_curso= mysqli_query($con, $result_curso);
+
+$result_professor ="SELECT * FROM professor";
+$resultado_professor= mysqli_query($con, $result_professor);   
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +21,7 @@ $resultado_curso= mysqli_query($con, $result_curso);
 
   <div class="x_panel">
     <div class="x_title">
-      <h2>Cadastro Processo Seletivo </h2>
+      <h1><center>Cadastro Processo Seletivo</center> </h1>
       <div class="clearfix"></div>
     </div>
     <div class="x_content">
@@ -27,7 +31,7 @@ $resultado_curso= mysqli_query($con, $result_curso);
         <span class="section">Dados Processo Seletivo</span>
 
         <div class="item form-group">
-          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nome">Nome
+          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nome">Processo Seletivo
           </label>
           <div class="col-md-6 col-sm-6 col-xs-12">
             <input class="form-control col-md-7 col-xs-12" maxlength="250" name="nomeProcesso" required="required"
@@ -36,7 +40,7 @@ $resultado_curso= mysqli_query($con, $result_curso);
         </div>
 
         <div class="item form-group">
-          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nome">Descricao
+          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nome">Descrição
           </label>
           <div class="col-md-6 col-sm-6 col-xs-12">
             <input class="form-control col-md-7 col-xs-12" maxlength="250" name="descricao" required="required"
@@ -44,13 +48,22 @@ $resultado_curso= mysqli_query($con, $result_curso);
           </div>
         </div>
         <div class="item form-group">
-          <label class="control-label col-md-3 col-sm-3 col-xs-12">Data Inicio
+          <label class="control-label col-md-3 col-sm-3 col-xs-12">Data Início
           </label>
           <div class="col-md-6 col-sm-6 col-xs-12">
             <input type="date" name="dataInicio" maxlength="20" class="form-control col-md-7 col-xs-12"
               required="required">
           </div>
         </div>
+
+        <div class="item form-group">
+          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="horaInicio">Hora Início
+          </label>
+          <div class="col-md-6 col-sm-6 col-xs-12">
+            <input class="form-control col-md-7 col-xs-12" maxlength="15" name="horaInicio" type="time">
+          </div>
+        </div>
+
         <div class="item form-group">
           <label class="control-label col-md-3 col-sm-3 col-xs-12" for="dataFinal">Data Final
           </label>
@@ -59,18 +72,7 @@ $resultado_curso= mysqli_query($con, $result_curso);
               required="required">
           </div>
         </div>
-
-
-
-
-
-        <div class="item form-group">
-          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="horaInicio">Hora Inicio
-          </label>
-          <div class="col-md-6 col-sm-6 col-xs-12">
-            <input class="form-control col-md-7 col-xs-12" maxlength="15" name="horaInicio" type="time">
-          </div>
-        </div>
+     
 
         <div class="item form-group">
           <label class="control-label col-md-3 col-sm-3 col-xs-12" for="horaFinal">Hora Final
@@ -79,13 +81,25 @@ $resultado_curso= mysqli_query($con, $result_curso);
             <input class="form-control col-md-7 col-xs-12" name="horaFinal" maxlength="50" type="time">
           </div>
         </div>
+
         <div class="item form-group">
-          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="coodernador">Coodernador
-          </label>
-          <div class="col-md-6 col-sm-6 col-xs-12">
-            <input class="form-control col-md-7 col-xs-12" name="coordenador" maxlength="50" type="text">
-          </div>
-        </div>
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="professor">Coordenador
+              </label>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <select class="form-control" id=selectProfessor name="coordenador">
+        
+  <option>Selecione o coordenador</option>
+              
+  <?php while($rows_professor = mysqli_fetch_assoc($resultado_professor)){ ?>
+
+<option value="<?php echo $rows_professor['idProfessor'];?>"><?php echo  ($rows_professor['nomeProfessor']);?></option>
+
+<?php } ?>	
+
+</select>
+                  </div>
+            </div>
+
         <div class="item form-group">
           <div class="item form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="acesso">Curso
@@ -113,7 +127,7 @@ $resultado_curso= mysqli_query($con, $result_curso);
             <div class="col-md-6 col-md-offset-3">
               <input type="button" name="cancelar" class="btn btn-primary"
                 onClick="window.location.href='IndexProfessor.php'" value="Cancelar">
-              <input type="submit" name="enviar" class="btn btn-success" value="Enviar">
+              <input type="submit" name="enviar" class="btn btn-success" value="Salvar">
             </div>
           </div>
 

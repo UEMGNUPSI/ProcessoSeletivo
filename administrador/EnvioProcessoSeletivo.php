@@ -15,7 +15,7 @@ $idCurso = $_POST["select_curso"];
 
 
 
-$sql = "INSERT INTO processoseletivo (nomeProcesso,descricao,dataInicio,dataFinal,horaInicio,horaFinal,coordenador,idCurso) 
+$sql = "INSERT INTO processoseletivo (nomeProcesso,descricao,dataInicio,dataFinal,horaInicio,horaFinal,idProfessor,idCurso) 
 VALUES ('$nomeProcesso','$descricao','$dataInicio','$dataFinal','$horaInicio','$horaFinal','$coordenador','$idCurso')";
 
 

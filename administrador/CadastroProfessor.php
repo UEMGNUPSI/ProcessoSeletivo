@@ -25,7 +25,7 @@ function validaSenha (input){
 
 <div class="x_panel">
         <div class="x_title">
-          <h2>Cadastro Professor </h2>
+          <h1> <center> Cadastro Professor </center> </h1>
           <div class="clearfix"></div>
         </div>
         <div class="x_content">
@@ -212,7 +212,7 @@ function validaSenha (input){
             <div class="form-group">
               <div class="col-md-6 col-md-offset-3">
                 <input type="button" name="cancelar" class="btn btn-primary" onClick="window.location.href='IndexProfessor.php'" value="Cancelar">
-                <input type="submit" name="enviar" class="btn btn-success"   value="Enviar">
+                <input type="submit" name="salvar" class="btn btn-success"   value="Salvar">
               </div>
             </div>
 <br>

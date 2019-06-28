@@ -27,9 +27,7 @@ $resultado_consultaCurso = mysqli_query($con, $result_consultaCurso);
 
 <div class="column content">
       
-<div class="title_left">
-                <h3>Consulta Curso</h3>
-              </div>
+                <h3><center>Consulta Curso</center></h3>
 
         
             </div>
@@ -46,7 +44,7 @@ $resultado_consultaCurso = mysqli_query($con, $result_consultaCurso);
 	<?php while($rows_consultaCurso = mysqli_fetch_assoc($resultado_consultaCurso)){ 
         ?>
     <tr>
-		<td><?php echo utf8_encode ($rows_consultaCurso['nomeCurso']);?></td>
+		<td><?php echo $rows_consultaCurso['nomeCurso'];?></td>
 	
 <td>
      <?php  echo "<a class='btn btn-success'  href='DadosCurso.php?idCurso=" .$rows_consultaCurso['idCurso'] .  "'>Editar</a>";  ?>

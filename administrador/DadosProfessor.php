@@ -22,6 +22,17 @@ $linha = $res->fetch_assoc();
 
 <head>
 
+<script>
+function validaSenha (input){ 
+    if (input.value != document.getElementById('senha').value) {
+    input.setCustomValidity('Repita a senha corretamente');
+  } else {
+    input.setCustomValidity('');
+  }
+} 
+
+</script>
+
 </head>
 
 <body>
@@ -29,13 +40,7 @@ $linha = $res->fetch_assoc();
 
       <div class="x_panel">
         <div class="x_title">
-          <h2>Cadastro Professor </h2>
-          <ul class="nav navbar-right panel_toolbox">
-            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-            </li>
-            <li><a class="close-link"><i class="fa fa-close"></i></a>
-            </li>
-          </ul>
+          <h1><center>Editar Cadastro Professor</center></h1>   
           <div class="clearfix"></div>
         </div>
         <div class="x_content">
@@ -178,8 +183,6 @@ $linha = $res->fetch_assoc();
               </div>
             </div>
 
-
-
             <span class="section">Informações de Acesso</span>
             <div class="item form-group">
               <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">E-mail
@@ -194,6 +197,14 @@ $linha = $res->fetch_assoc();
               </label>
               <div class="col-md-6 col-sm-6 col-xs-12">
                 <input type="password" name="senha" maxlength="50" class="form-control col-md-7 col-xs-12" value="<?php echo $linha['senha']?>" required="required">
+              </div>
+            </div>
+
+            <div class="item form-group">
+              <label for="password" class="control-label col-md-3">Confirma a senha
+              </label>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <input type="password" name="senha_confirma" maxlength="255" class="form-control col-md-7 col-xs-12" required="required" oninput="validaSenha(this)" >
               </div>
             </div>
 

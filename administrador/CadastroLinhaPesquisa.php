@@ -18,7 +18,7 @@ $resultado_curso= mysqli_query($con, $result_curso);
 
 <div class="x_panel">
         <div class="x_title">
-          <h2>Linha de Pesquisa </h2>
+          <h1><center>Linha de Pesquisa</center> </h1>
           <div class="clearfix"></div>
         </div>
         <div class="x_content">
@@ -51,7 +51,7 @@ $resultado_curso= mysqli_query($con, $result_curso);
               
   <?php while($rows_curso = mysqli_fetch_assoc($resultado_curso)){ ?>
 
-<option value="<?php echo $rows_curso['idCurso'];?>"><?php echo utf8_encode ($rows_curso['nomeCurso']);?></option>
+<option value="<?php echo $rows_curso['idCurso'];?>"><?php echo ($rows_curso['nomeCurso']);?></option>
 
 <?php } ?>	
 
@@ -63,7 +63,7 @@ $resultado_curso= mysqli_query($con, $result_curso);
             <div class="form-group">
               <div class="col-md-6 col-md-offset-3">
                 <input type="button" name="cancelar" class="btn btn-primary" onClick="window.location.href='IndexProfessor.php'" value="Cancelar">
-                <input type="submit" name="enviar" class="btn btn-success"  value="Enviar">
+                <input type="submit" name="enviar" class="btn btn-success"  value="Salvar">
               </div>
             </div>  
 

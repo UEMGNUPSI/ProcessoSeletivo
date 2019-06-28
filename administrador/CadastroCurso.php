@@ -4,7 +4,7 @@ include_once("MenuProfessor.php");
 ?>
       <div class="x_panel">
         <div class="x_title">
-          <h2>Cadastro Curso </h2>
+          <h1><center>Cadastro Curso</center> </h1>
          
           <div class="clearfix"></div>
         </div>
@@ -25,7 +25,7 @@ include_once("MenuProfessor.php");
             <div class="form-group">
               <div class="col-md-6 col-md-offset-3">
                 <input type="button" name="cancelar" class="btn btn-primary" onClick="window.location.href='IndexProfessor.php'" value="Cancelar">
-                <input type="submit" name="enviar" class="btn btn-success"  value="Enviar">
+                <input type="submit" name="enviar" class="btn btn-success"  value="Salvar">
               </div>
             </div>
 

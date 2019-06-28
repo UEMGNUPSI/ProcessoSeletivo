@@ -27,9 +27,7 @@ $resultado_consultaProf = mysqli_query($con, $result_consultaProf);
 
 <div class="column content">
       
-<div class="title_left">
-                <h3>Consulta Professores</h3>
-              </div>
+                <h3><center>Consulta Professores</center></h3>
 
         
             </div>
@@ -59,7 +57,7 @@ $resultado_consultaProf = mysqli_query($con, $result_consultaProf);
 		<td>
 
      <?php  echo "<a class='btn btn-success'  href='DadosProfessor.php?idProfessor=" .$rows_consultaProf['idProfessor'] .  "'>Editar</a>";  ?>
-    <?php  echo "<a  class='btn btn-danger' href='ExcluirProfessor.php?idProfessor=" .$rows_consultaProf['idProfessor']. "'> Excluir</a>";  ?>
+    <?php  echo "<a  class='btn btn-danger' href='ExcluirProfessor.php?idProfessor=" .$rows_consultaProf['idProfessor']. "' onclick=\"return confirm('Tem certeza que deseja deletar esse registro?');\" > Excluir</a>";  ?>
 	</td>
 	</tr>
 
