@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -28,61 +29,61 @@ function validaSenha (input){
 </script>
 
   </head>
+  
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <center><h3 class="modal-title">Cadastro</h3>
+        </center>
+      </div>
+      <div class="modal-body">
 
-  <div class="x_panel">
-        <div class="x_title">
-          <h1> <center> Cadastro </center> </h1>
-          <div class="clearfix"></div>
-        </div>
-        <div class="x_content">
- 
-          <form action="EnvioCadastro.php" method="POST"  onsubmit="return(verifica())" class="form-horizontal form-label-left">
-            <span class="section">Dados</span>
+        <form action="EnvioCadastro.php" method="POST"  onsubmit="return(verifica())" class="form-horizontal form-label-left">
 
-            <div class="item form-group">
-              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nome">Nome completo
-              </label>
-              <div class="col-md-6 col-sm-6 col-xs-12">
-                <input class="form-control col-md-7 col-xs-12" maxlength="250" name="nome" required="required" type="text">
-              </div>
-            </div>
-           
-            <div class="item form-group">
-              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">E-mail
-              </label>
-              <div class="col-md-6 col-sm-6 col-xs-12">
-                <input class="form-control col-md-7 col-xs-12" name="email" maxlength="250"  onblur="checarEmail();" type="text" required="required" >
-              </div>
-            </div>
-
-            <div class="item form-group">
-              <label for="password" class="control-label col-md-3">Senha
-              </label>
-              <div class="col-md-6 col-sm-6 col-xs-12">
-                <input type="password" id="senha" name="senha" maxlength="255" class="form-control col-md-7 col-xs-12" required="required">
-              </div>
-            </div>
-
-            <div class="item form-group">
-              <label for="password" class="control-label col-md-3">Confirma a senha
-              </label>
-              <div class="col-md-6 col-sm-6 col-xs-12">
-                <input type="password" name="senha_confirma" maxlength="255" class="form-control col-md-7 col-xs-12" required="required" oninput="validaSenha(this)" >
-              </div>
-            </div>
-
-            <div class="ln_solid"></div>
-            <div class="form-group">
-              <div class="col-md-6 col-md-offset-3">
-                <input type="button" name="cancelar" class="btn btn-primary" onClick="window.location.href='../loguin.php'" value="Cancelar">
-                <input type="submit" name="salvar" class="btn btn-success"   value="Salvar">
-              </div>
-            </div>
-<br>
-          </form>
-        </div>
+<div class="item form-group">
+  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nome">Nome completo
+  </label>
+  <div class="col-md-6 col-sm-6 col-xs-12">
+    <input class="form-control col-md-7 col-xs-12" maxlength="250" name="nome" required="required" type="text">
+  </div>
 </div>
+
+<div class="item form-group">
+  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">E-mail
+  </label>
+  <div class="col-md-6 col-sm-6 col-xs-12">
+    <input class="form-control col-md-7 col-xs-12" name="email" maxlength="250"  onblur="checarEmail();" type="text" required="required" >
+  </div>
 </div>
+
+<div class="item form-group">
+  <label for="password" class="control-label col-md-3">Senha
+  </label>
+  <div class="col-md-6 col-sm-6 col-xs-12">
+    <input type="password" id="senha" name="senha" maxlength="255" class="form-control col-md-7 col-xs-12" required="required">
+  </div>
+</div>
+
+<div class="item form-group">
+  <label for="password" class="control-label col-md-3">Confirma a senha
+  </label>
+  <div class="col-md-6 col-sm-6 col-xs-12">
+    <input type="password" name="senha_confirma" maxlength="255" class="form-control col-md-7 col-xs-12" required="required" oninput="validaSenha(this)" >
+  </div>
+</div>
+
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal"  onClick="window.location.href='../loguin.php'" >Cancelar</button>
+        <button type="submit" class="btn btn-success">Salvar</button>
+      </div>
+    </div>
+  </div>
+</div>
+  </form>
+
 <script src="../JS/mascaras.js"></script>
 
   </body>

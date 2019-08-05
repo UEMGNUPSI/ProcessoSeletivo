@@ -10,8 +10,8 @@ $senhaSegura = password_hash($senha, PASSWORD_DEFAULT);
 
 
 
-$sql = "INSERT INTO candidato (nome,email,senha) 
-VALUES ('$nome','$email','$senhaSegura')";
+$sql = "INSERT INTO candidato (nome,email,senha,perfilUsuario) 
+VALUES ('$nome','$email','$senhaSegura',0)";
 
   
 

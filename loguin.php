@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+
     <title>Processo Seletivo | </title>
 
     <!-- Bootstrap -->
@@ -20,7 +21,7 @@
 
     <!-- Custom Theme Style -->
     <link href="CSS/custom.min.css" rel="stylesheet">
- 
+
   </head>
 
   <body class="login">
@@ -59,15 +60,18 @@
               <div class="clearfix"></div>
 
               <div class="separator">
+              
                 <p >Novo no site?<a  href="Candidato/Cadastro.php" class="to-register">Criar conta </a> </p>
                 
                           </div>
-                       </form>
+                          
+                           </form>   
+                           
+                           </section>
+   </div>
+     </div>
+     
+</div>
 
-                                </section>
-        </div>
-      </div>
-    </div>
-    
-  </body>
+</body>
 </html>

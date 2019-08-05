@@ -7,7 +7,7 @@
 	$senha = $_POST['senha'];
 
 	if ($acesso==0){
-		$sql = "SELECT * FROM candidato WHERE email = '$usuario' or cpf ='$usuario' and senha = '$senha' ";
+		$sql = "SELECT * FROM candidato WHERE email = '$usuario' or cpf ='$usuario' ";
 		
 		$res = $con->query($sql);
 		$linha = $res->fetch_assoc();
@@ -18,7 +18,7 @@
 	$senha_db = $linha['senha'];
 	$user2 = $linha['cpf'];
 	
-	if (($usuario == $user || $usuario == $user2 ) && password_verify($senha,$senha_db) && $tipo == 0)
+	if (($usuario == $user || $usuario == $user2 ) && password_verify($senha,$senha_db) && ($tipo == 0))
 
 	{
 	
