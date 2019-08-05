@@ -112,7 +112,7 @@ $resultado_professor= mysqli_query($con, $result_professor);
                 <?php while($rows_curso = mysqli_fetch_assoc($resultado_curso)){ ?>
 
                 <option value="<?php echo $rows_curso['idCurso'];?>">
-                  <?php echo utf8_encode ($rows_curso['nomeCurso']);?></option>
+                  <?php echo  ($rows_curso['nomeCurso']);?></option>
 
                 <?php } ?>
 

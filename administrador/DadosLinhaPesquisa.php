@@ -76,7 +76,7 @@ $resultado_consultaCurso = mysqli_query($con, $result_consultaCurso);
   <?php while($rows_consultaCurso = mysqli_fetch_assoc($resultado_consultaCurso)){ ?>
 
 <option value="<?php echo $rows_consultaCurso['idCurso'];?>" <?php if ($linha['idCurso']==$rows_consultaCurso['idCurso']){ echo "selected";}?>  >
-<?php echo utf8_encode ($rows_consultaCurso['nomeCurso']);?></option>
+<?php echo  ($rows_consultaCurso['nomeCurso']);?></option>
 
 <?php } ?>	
 
