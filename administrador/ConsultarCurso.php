@@ -48,7 +48,7 @@ $resultado_consultaCurso = mysqli_query($con, $result_consultaCurso);
 	
 <td>
      <?php  echo "<a class='btn btn-success'  href='DadosCurso.php?idCurso=" .$rows_consultaCurso['idCurso'] .  "'>Editar</a>";  ?>
-    <?php  echo "<a class='btn btn-danger' href='ExcluirCurso.php?idCurso=" .$rows_consultaCurso['idCurso']. "'> Excluir</a>";  ?>
+    <?php  echo "<a class='btn btn-danger' href='ExcluirCurso.php?idCurso=" .$rows_consultaCurso['idCurso']. "'onclick=\"return confirm('Tem certeza que deseja deletar esse registro?');\"> Excluir</a>";  ?>
 	</td>
 	</tr>
 

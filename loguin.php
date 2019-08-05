@@ -20,9 +20,11 @@
 
     <!-- Custom Theme Style -->
     <link href="CSS/custom.min.css" rel="stylesheet">
+ 
   </head>
 
   <body class="login">
+  
    <div>
       <a class="hiddenanchor" id="signup"></a>
       <a class="hiddenanchor" id="signin"></a>
@@ -57,15 +59,15 @@
               <div class="clearfix"></div>
 
               <div class="separator">
-                <p class="change_link">Novo no site?
-                  <a href="#signup" class="to_register"> Criar conta </a>
-                </p>
-                  </div>
-           
-            </form>
-          </section>
+                <p >Novo no site?<a  href="Candidato/Cadastro.php" class="to-register">Criar conta </a> </p>
+                
+                          </div>
+                       </form>
+
+                                </section>
         </div>
       </div>
     </div>
+    
   </body>
 </html>

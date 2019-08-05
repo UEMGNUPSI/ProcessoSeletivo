@@ -18,7 +18,7 @@
 	$senha_db = $linha['senha'];
 	$user2 = $linha['cpf'];
 	
-	if (($usuario == $user || $usuario == $user2 ) && $senha == $senha_db && $acesso == 0)
+	if (($usuario == $user || $usuario == $user2 ) && password_verify($senha,$senha_db) && $tipo == 0)
 
 	{
 	
