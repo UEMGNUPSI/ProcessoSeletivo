@@ -64,44 +64,7 @@
                         <div class="menu_section">
                             <h3>Geral</h3>
                             <ul class="nav side-menu">
-                                <li><a><i class="fa "></i> Professor <span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu">
-                                        <li><a href="CadastroProfessor.php">Cadastrar</a></li>
-                                        <li><a href="ConsultarProfessor.php">Consultar</a></li>
-                                    </ul>
-                                </li>
-                                <li><a><i class="fa "></i> Curso <span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu">
-                                        <li><a href="CadastroCurso.php">Cadastrar</a></li>
-                                        <li><a href="ConsultarCurso.php">Consultar</a></li>
-                                        </ul>
-                                </li>
-                                <li><a><i class="fa "></i> Linha de Pesquisa <span
-                                            class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu">
-                                        <li><a href="CadastroLinhaPesquisa.php">Cadastrar</a></li>
-                                        <li><a href="ConsultarLinhaPesquisa.php">Consultar</a></li>
-                                    </ul>
-                                </li>
-                                <li><a><i class="fa "></i> Vinculo <span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu">
-                                        <li><a href="CadastroVinculo.php">Cadastrar</a></li>
-                                        <li><a href="ConsultarVinculo.php">Consultar</a></li>
-                                    </ul>
-                                </li>
-                                <li><a><i class="fa "></i> Processo Seletivo <span
-                                            class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu">
-                                        <li><a href="CadastroProcessoSeletivo.php">Cadastrar</a></li>
-                                        <li><a href="ConsultarProcessoSeletivo.php">Consultar</a></li>
-                                    </ul>
-                                </li>
-                                <li><a><i class="fa "></i>Tipo Processo <span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu">
-                                        <li><a href="CadastroTipoProcesso.php">Cadastrar</a></li>
-                                        <li><a href="ConsultarTipoProcesso.php">Consultar</a></li>
-                                    </ul>
-                                </li>
+                               
                             </ul>
                         </div>
 

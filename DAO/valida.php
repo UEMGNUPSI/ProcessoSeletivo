@@ -16,9 +16,10 @@
 	$nome = $linha['nome'];
 	$user = $linha['email'];
 	$senha_db = $linha['senha'];
+	$tipo = $linha['perfilUsuario'];
 	$user2 = $linha['cpf'];
 	
-	if (($usuario == $user || $usuario == $user2 ) && password_verify($senha,$senha_db) && ($tipo == 0))
+	if (($usuario == $user || $usuario == $user2 ) && password_verify($senha,$senha_db) && ($tipo == 0 || $tipo == 2))
 
 	{
 	
@@ -27,7 +28,7 @@
 		$_SESSION['nome'] = $nome;
 		$_SESSION['user'] = $user;
 	
-		header('location: ../indexCandidato.php'); 
+		header('location: ../candidato/IndexCandidato.php'); 
 	}
 
 	else
