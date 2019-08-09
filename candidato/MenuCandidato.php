@@ -90,10 +90,10 @@
                                     <span class=" fa fa-angle-down"></span>
                                 </a>
                                 <ul class="dropdown-menu dropdown-usermenu pull-right">
-                                    <li><a href="javascript:;"> Perfil</a></li>
+                                    <li><a href="perfilCandidato.php"> Meus dados</a></li>
                                     <li>
-                                        <a href="javascript:;">
-                                            <span>Configurações</span>
+                                        <a href="AlterarSenhaCandidato.php">
+                                            <span>Alterar Senha</span>
                                         </a>
                                     </li>
                                     <li><a href="javascript:;">Ajuda</a></li>
