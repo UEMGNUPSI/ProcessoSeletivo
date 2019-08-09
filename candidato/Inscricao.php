@@ -2,6 +2,17 @@
 include_once("MenuCandidato.php");
 
 ?>
+
+<?php
+include_once("../DAO/conexao.php");
+
+$result_linhaPesquisa ="SELECT * FROM linhadepesquisa";
+$resultado_linhaPesquisa= mysqli_query($con, $result_linhaPesquisa);
+
+$result_linhaPesquisa2 ="SELECT * FROM linhadepesquisa";
+$resultado_linhaPesquisa2= mysqli_query($con, $result_linhaPesquisa2);
+?>
+
 <link rel="stylesheet" type="text/css" href="../CSS/inscricao.css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -40,7 +51,7 @@ include_once("MenuCandidato.php");
                     </li>
 
                     <li role="presentation" class="disabled">
-                        <a href="#step3" data-toggle="tab" aria-controls="step4" role="tab" title="Formação">
+                        <a href="#step4" data-toggle="tab" aria-controls="step4" role="tab" title="Formação">
                             <span class="round-tab">
                                 <i class="glyphicon glyphicon-education"></i>
                             </span>
@@ -258,13 +269,96 @@ include_once("MenuCandidato.php");
                          <div class="x_panel"  >
 
   <label>Atestado de Proficiência em Língua Estrangeira</label>
-  <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+  <br>
+  <input class="form-check-input" type="radio" name="LinguaEstrangeira" value="Sim" id="defaultCheck2">
   <label class="form-check-label" for="defaultCheck1">Sim</label>
-  <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-  <label class="form-check-label" for="defaultCheck1">Não</label>
+  <br>
+  <input class="form-check-input" type="radio" name="LinguaEstrangeira" value="Não" id="defaultCheck2">
+  <label class="form-check-label" for="defaultCheck2">Não</label>
+  
+  <br>
+<br>
+  <label>Assinale</label>
+  <br>
+  <div class="form-check">
+  <input class="form-check-input" type="radio" name="Opcao" value="Canhoto (a)" id="defaultCheck2">
+  <label class="form-check-label" for="defaultCheck1">Canhoto (a)</label>
+  </div>
+  <div class="form-check">
+  <input class="form-check-input" type="radio" name="Opcao" value="Destro (a)" id="defaultCheck2">
+  <label class="form-check-label" for="defaultCheck2">Destro (a)</label>
   </div>
 
+<br>
 
+      <label> UNIDADE DA UEMG EM QUE PRETENDE REALIZAR A PROVA ESCRITA</label>
+      <select class="form-control">
+      <option>Selecione</option>
+        <option value="Frutal">Frutal</option>
+        <option value="Faculdade de Educação (FaE) – Belo Horizonte">Faculdade de Educação (FaE) – Belo Horizonte</option>
+      </select>
+
+<br>
+
+<label>LINHA DE PESQUISA  </label>
+<br>
+                <select class="form-control" id=selectlinhapesquisa name="select_linhapesquisa">
+
+  <option>Selecione a linha de pesquisa</option>
+              
+  <?php while($rows_linhaPesquisa = mysqli_fetch_assoc($resultado_linhaPesquisa)){ ?>
+
+<option value="<?php echo $rows_linhaPesquisa['idLinhaPesquisa'];?>"><?php echo  ($rows_linhaPesquisa['nomePesquisa']);?></option>
+
+<?php } ?>	
+
+</select>
+
+         <br>
+      <center> <label>ORIENTADORES: (SELECIONE NO MÁXIMO TRÊS E POR ORDEM DE PRIORIDADE) </label><center>
+<table id="datatable" class="table table-striped table-bordered">
+                      <thead>
+                        <tr>
+                        <?php while($rows_linhaPesquisa2  = mysqli_fetch_assoc($resultado_linhaPesquisa2 )){ 
+        ?>
+                        <th scope="col"></th>
+                        <th scope="col"><?php echo $rows_linhaPesquisa2['nomePesquisa'];?></th>
+<?php $linhaPesquisa = $rows_linhaPesquisa2['idLinhaPesquisa'];
+
+
+$result_professores ="SELECT P.nomeProfessor,
+V.idProfessor
+FROM linhadepesquisa L, professor P, vinculo V 
+WHERE V.idProfessor = P.idProfessor and
+V.idLinhaPesquisa = $linhaPesquisa "; 
+
+$resultado_professores= mysqli_query($con, $result_professores);
+
+?>
+
+                        <?php } ?>
+                         </tr>
+                       </thead>   
+
+<tbody>
+	<?php while($rows_professores  = mysqli_fetch_assoc($resultado_professores )){ 
+        ?>
+    <tr>
+   <td><input type="checkbox" value="<?php echo $rows_professores['idProfessor'];?>">
+    </td>
+    <td>
+ <?php echo  $rows_professores['nomeProfessor']; ?>
+</td>
+
+<?php } ?>
+</tbody>
+
+	</table>
+  
+  
+  </div>
+
+      
                            <ul class="list-inline pull-right">
                             <li><button type="button" class="btn btn-default prev-step">Voltar</button></li>
                             <li><button type="button" class="btn btn-primary next-step">Salvar e continuar</button></li>
@@ -274,6 +368,7 @@ include_once("MenuCandidato.php");
 
                     <div class="tab-pane" role="tabpanel" id="step4">
                         <h3>Formação</h3>
+
                             <ul class="list-inline pull-right">
                             <li><button type="button" class="btn btn-default prev-step">Voltar</button></li>
                             <li><button type="button" class="btn btn-primary btn-info-full next-step">Salvar e continuar</button></li>
