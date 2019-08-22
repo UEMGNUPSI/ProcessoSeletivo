@@ -3,7 +3,7 @@
 	session_start();
 		if(!isset($_SESSION['nome']))
 		{
-			header('location: ../loguin.php?i=1');
+			header('location: ../loguin.php');
 		}
 ?>
 
@@ -39,7 +39,7 @@
             <div class="col-md-3 left_col">
                 <div class="left_col scroll-view">
                     <div class="navbar nav_title" style="border: 0;">
-                        <a href="indexProfessor.php" class="site_title"><span>Processo
+                        <a href="indexCandidato.php" class="site_title"><span>Processo
                                 Seletivo</span></a>
                     </div>
 

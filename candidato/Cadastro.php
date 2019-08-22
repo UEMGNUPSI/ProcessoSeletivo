@@ -38,7 +38,7 @@ function validaSenha (input){
       </div>
       <div class="modal-body">
 
-        <form action="EnvioAtivacao.php" method="POST"  onsubmit="return(verifica())" class="form-horizontal form-label-left">
+        <form action="EnvioCadastro.php" method="POST"  onsubmit="return(verifica())" class="form-horizontal form-label-left">
 
 <div class="item form-group">
   <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nome">Nome completo

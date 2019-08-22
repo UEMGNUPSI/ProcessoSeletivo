@@ -11,7 +11,7 @@ $sql = "INSERT INTO linhadepesquisa (nomePesquisa,descricao,idCurso) VALUES ('$n
 
 if ($con->query($sql) === TRUE){
  
-	echo "<script>alert('Cadastro realizado com sucesso!');window.location='CadastrarLinhaPesquisa.php'</script>";
+	echo "<script>alert('Cadastro realizado com sucesso!');window.location='CadastroLinhaPesquisa.php'</script>";
 } else {
 	echo "Erro para inserir: " . $con->error;
 
