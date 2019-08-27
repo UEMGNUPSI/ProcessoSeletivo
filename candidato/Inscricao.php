@@ -9,8 +9,23 @@ include_once("../DAO/conexao.php");
 $result_linhaPesquisa ="SELECT * FROM linhadepesquisa";
 $resultado_linhaPesquisa= mysqli_query($con, $result_linhaPesquisa);
 
+$result_linhaPesquisa1 ="SELECT * FROM linhadepesquisa";
+$resultado_linhaPesquisa1= mysqli_query($con, $result_linhaPesquisa1);
+
 $result_linhaPesquisa2 ="SELECT * FROM linhadepesquisa";
 $resultado_linhaPesquisa2= mysqli_query($con, $result_linhaPesquisa2);
+
+$result_linhaPesquisa3 ="SELECT * FROM linhadepesquisa";
+$resultado_linhaPesquisa3= mysqli_query($con, $result_linhaPesquisa3);
+
+$result_orientadores1 ="SELECT * FROM professor";
+$resultado_orientadores1= mysqli_query($con, $result_orientadores1);
+
+$result_orientadores2 ="SELECT * FROM professor";
+$resultado_orientadores2= mysqli_query($con, $result_orientadores2);
+
+$result_orientadores3 ="SELECT * FROM professor";
+$resultado_orientadores3= mysqli_query($con, $result_orientadores3);
 ?>
 
 <link rel="stylesheet" type="text/css" href="../CSS/inscricao.css">
@@ -18,6 +33,10 @@ $resultado_linhaPesquisa2= mysqli_query($con, $result_linhaPesquisa2);
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="../JS/inscricao.js"></script>
 
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
 
 		<section>
@@ -35,43 +54,46 @@ $resultado_linhaPesquisa2= mysqli_query($con, $result_linhaPesquisa2);
                     </li>
 
                     <li role="presentation" class="disabled">
-                        <a href="#step2" data-toggle="tab" aria-controls="step2" role="tab" title="Endereço">
+                        <a href="#step2" data-toggle="tab" aria-controls="step2" role="tab" title="Endereço Residencial">
+                            <span class="round-tab">
+                            <i class="glyphicon glyphicon-home"></i>
+                               
+                            </span>
+                        </a>
+                    </li>
+
+                    <li role="presentation" class="disabled">
+                        <a href="#step3" data-toggle="tab" aria-controls="step3" role="tab" title="Endereço Comercial">
                             <span class="round-tab">
                             <i class="glyphicon glyphicon-map-marker"></i>
                                
                             </span>
                         </a>
                     </li>
+                    
                     <li role="presentation" class="disabled">
-                        <a href="#step3" data-toggle="tab" aria-controls="step3" role="tab" title="Formulário de Inscrição">
+                        <a href="#step4" data-toggle="tab" aria-controls="step4" role="tab" title="Formulário de Inscrição">
                             <span class="round-tab">
-                                <i class="glyphicon glyphicon-list-alt	"></i>
+                                <i class="glyphicon glyphicon-list-alt"></i>
                             </span>
                         </a>
                     </li>
 
                     <li role="presentation" class="disabled">
-                        <a href="#step4" data-toggle="tab" aria-controls="step4" role="tab" title="Formação">
+                        <a href="#complete" data-toggle="tab" aria-controls="complete" role="tab" title="Formação Acadêmica">
                             <span class="round-tab">
                                 <i class="glyphicon glyphicon-education"></i>
                             </span>
                         </a>
                     </li>
 
-                    <li role="presentation" class="disabled">
-                        <a href="#complete" data-toggle="tab" aria-controls="complete" role="tab" title="Completo">
-                            <span class="round-tab">
-                                <i class="glyphicon glyphicon-ok"></i>
-                            </span>
-                        </a>
-                    </li>
                 </ul>
             </div>
 
-            <form role="form">
+            <form role="cadastro">
                 <div class="tab-content">
                     <div class="tab-pane active" role="tabpanel" id="step1">
-                        <h3>Informações Pessoais</h3>
+                       <center> <h3>Informações Pessoais</h3></center>
 
         <div class="x_panel">
 
@@ -112,7 +134,7 @@ $resultado_linhaPesquisa2= mysqli_query($con, $result_linhaPesquisa2);
 
     <div class="form-group col-md-4">
       <label for="inputState">Estado civil</label>
-      <select id="inputState" class="form-control">
+      <select id="inputState" class="form-control" name="selectEstadoCivil">
         <option >Selecione</option>
         <option value="Solteiro (a)">Solteiro (a)</option>
         <option value="Casado (a)">Casado (a)</option>
@@ -123,7 +145,7 @@ $resultado_linhaPesquisa2= mysqli_query($con, $result_linhaPesquisa2);
 
     <div class="form-group col-md-4">
       <label for="inputState">Sexo </label>
-      <select id="inputState" class="form-control">
+      <select id="inputState" class="form-control" name="selectSexo">
       <option>Selecione</option>
         <option value="Feminino">Feminino</option>
         <option value="Masculino">Masculino</option>
@@ -132,7 +154,7 @@ $resultado_linhaPesquisa2= mysqli_query($con, $result_linhaPesquisa2);
 
     <div class="form-group col-md-4">
       <label for="inputState">Raça/etnia </label>
-      <select id="inputState" class="form-control">
+      <select id="inputState" class="form-control" name="selectEtnia">
       <option>Selecione</option>
         <option value="">Branco (a)</option>
         <option>Negro (a)</option>
@@ -149,7 +171,7 @@ $resultado_linhaPesquisa2= mysqli_query($con, $result_linhaPesquisa2);
 
     <div class="form-group col-md-2">
       <label>Orgão Expedidor</label>
-      <input type="text" class="form-control">
+      <input type="text" class="form-control" name="orgaoExpedidor">
     </div>
   </div>
 
@@ -162,7 +184,7 @@ $resultado_linhaPesquisa2= mysqli_query($con, $result_linhaPesquisa2);
 
 
                     <div class="tab-pane" role="tabpanel" id="step2">
-                        <h3>Endereço</h3>
+                       <center> <h3>Endereço Residencial</h3></center>
 
                         <div class="x_panel">
 
@@ -197,7 +219,7 @@ $resultado_linhaPesquisa2= mysqli_query($con, $result_linhaPesquisa2);
 
 <div class="form-group col-md-4">
   <label>UF </label>
-  <select class="form-control">
+  <select class="form-control" name="selectEstado">
   <option >Selecione seu estado</option>
                   <option value="Acre">Acre</option>
                   <option value="Alagoas">Alagoas</option>
@@ -231,24 +253,24 @@ $resultado_linhaPesquisa2= mysqli_query($con, $result_linhaPesquisa2);
 
 <div class="form-group col-md-4">
   <label>CEP</label>
-  <input type="text" class="form-control">
+  <input type="text" class="form-control" name="cep">
 </div>
 
 
 <div class="form-group col-md-4">
   <label>Tel. Celular</label>
-  <input type="text" class="form-control">
+  <input type="text" class="form-control" name="telCelular">
 </div>
 
 <div class="form-group col-md-4">
   <label>Tel. Residencial</label>
-  <input type="text" class="form-control">
+  <input type="text" class="form-control" name="telResidencial">
 </div>
 
 
 <div class="form-group col-md-8">
   <label>Email</label>
-  <input type="mail" class="form-control">
+  <input type="mail" class="form-control" name="EmailContato">
 </div>
 
 </div>
@@ -262,9 +284,120 @@ $resultado_linhaPesquisa2= mysqli_query($con, $result_linhaPesquisa2);
                         </ul>
                     </div>
                 
-
                     <div class="tab-pane" role="tabpanel" id="step3">
-                         <h3>Formulário de Inscrição</h3>    
+                       <center> <h3>Endereço Comercial(*opcional)</h3></center>
+
+                        <div class="x_panel">
+
+
+  <div class="form-group col-md-6">
+  <label >Empresa/Instituição</label>
+  <input type="text" class="form-control" name="emrpesaInstituicao">
+</div>
+
+
+<div class="form-group col-md-6">
+  <label >Função</label>
+  <input type="text" class="form-control" name="funcao">
+</div>
+
+<div class="form-group col-md-6">
+  <label >Rua/Av</label>
+  <input type="text" class="form-control" name="ruaComercial">
+</div>
+
+
+<div class="form-group col-md-2">
+  <label >Nº</label>
+  <input type="text" class="form-control" name="numeroComercial">
+</div>
+
+<div class="form-group col-md-4">
+  <label>Complemento</label>
+  <input type="text" class="form-control" name="complementoComercial">
+</div>
+
+<div class="form-row">
+<div class="form-group col-md-6">
+  <label>Bairro</label>
+  <input type="text" class="form-control" name="bairroComercial">
+</div>
+
+<div class="form-row">
+<div class="form-group col-md-6">
+  <label>Cidade</label>
+  <input type="text" class="form-control" name="cidadeComercial">
+</div>
+
+
+<div class="form-group col-md-4">
+  <label>UF </label>
+  <select class="form-control" name="selectEstadoComercial">
+  <option >Selecione seu estado</option>
+                  <option value="Acre">Acre</option>
+                  <option value="Alagoas">Alagoas</option>
+                  <option value="Amapá">Amapá</option>
+                  <option value="Amazonas">Amazonas</option>
+                  <option value="Bahia">Bahia</option>
+                  <option value="Ceará">Ceará</option>
+                  <option value="Distrito Federal">Distrito Federal</option>
+                  <option value="Espírito Santo">Espírito Santo</option>
+                  <option value="Goiás">Goiás</option>
+                  <option value="Maranhão">Maranhão</option>
+                  <option value="Mato Grosso">Mato Grosso</option>
+                  <option value="Mato Grosso do Sul">Mato Grosso do Sul</option>
+                  <option value="Minas Gerais">Minas Gerais</option>
+                  <option value="Pará">Pará</option>
+                  <option value="Paraná">Paraná</option>
+                  <option value="Pernambuco">Pernambuco</option>
+                  <option value="Piauí">Piauí</option>
+                  <option value="Rio de Janeiro">Rio de Janeiro</option>
+                  <option value="Rio Grande do Norte">Rio Grande do Norte</option>
+                  <option value="Rio Grande do Sul">Rio Grande do Sul</option>
+                  <option value="Rondônia">Rondônia</option>
+                  <option value="Roraima">Roraima</option>
+                  <option value="Santa Catarina">Santa Catarina</option>
+                  <option value="São Paulo">São Paulo</option>
+                  <option value="Sergipe">Sergipe</option>
+                  <option value="Tocantins">Tocantins</option>
+  </select>
+</div>
+
+
+<div class="form-group col-md-4">
+  <label>CEP</label>
+  <input type="text" class="form-control" name="cepComercial">
+</div>
+
+
+<div class="form-group col-md-4">
+  <label>Telefone</label>
+  <input type="text" class="form-control" name="telefoneComercial">
+</div>
+
+
+<div class="form-group col-md-8">
+  <label>Email</label>
+  <input type="mail" class="form-control" name="emailComercial">
+</div>
+
+</div>
+
+
+</div>
+  </div>
+
+  <ul class="list-inline pull-right">
+                            <li><button type="button" class="btn btn-default prev-step">Voltar</button></li>
+                            <li><button type="button" class="btn btn-primary next-step">Salvar e continuar</button></li>
+                        </ul>
+                    </div>
+
+
+
+
+                    <div class="tab-pane" role="tabpanel" id="step4">
+                       <center>  <h3>Formulário de Inscrição</h3>    </center>
                  
                          <div class="x_panel"  >
 
@@ -290,15 +423,18 @@ $resultado_linhaPesquisa2= mysqli_query($con, $result_linhaPesquisa2);
   </div>
 
 <br>
+<div class="form-group col-md-8">
 
       <label> UNIDADE DA UEMG EM QUE PRETENDE REALIZAR A PROVA ESCRITA</label>
-      <select class="form-control">
+      <select class="form-control" name="localProva">
       <option>Selecione</option>
         <option value="Frutal">Frutal</option>
         <option value="Faculdade de Educação (FaE) – Belo Horizonte">Faculdade de Educação (FaE) – Belo Horizonte</option>
       </select>
+  
+</div>
 
-<br>
+<div class="form-group col-md-6">
 
 <label>LINHA DE PESQUISA  </label>
 <br>
@@ -313,52 +449,172 @@ $resultado_linhaPesquisa2= mysqli_query($con, $result_linhaPesquisa2);
 <?php } ?>	
 
 </select>
+</div>
+        
+<script>
+         function retiraOption(select)
+{
+	document.cadastro.orientador2.remove(select.selectedIndex);
+}
+ </script>
 
-         <br>
-      <center> <label>ORIENTADORES: (SELECIONE NO MÁXIMO TRÊS E POR ORDEM DE PRIORIDADE) </label><center>
-<table id="datatable" class="table table-striped table-bordered">
-                      <thead>
-                        <tr>
-                        <?php while($rows_linhaPesquisa2  = mysqli_fetch_assoc($resultado_linhaPesquisa2 )){ 
-        ?>
-                        <th scope="col"></th>
-                        <th scope="col"><?php echo $rows_linhaPesquisa2['nomePesquisa'];?></th>
-<?php $linhaPesquisa = $rows_linhaPesquisa2['idLinhaPesquisa'];
+<div class="form-group col-md-8">
+
+<label>SELECIONE A LINHA DE PESQUISA DE SEU ORIENTADOR(PRIORIDADE 1) </label>
+<br>
+                <select class="form-control" id=id_linhapesquisa1 name="id_linhapesquisa1">
+
+  <option>Selecione a linha de pesquisa</option>
+              
+  <?php while($rows_linhaPesquisa1 = mysqli_fetch_assoc($resultado_linhaPesquisa1)){ ?>
+
+<option value="<?php echo $rows_linhaPesquisa1['idLinhaPesquisa'];?>"><?php echo  ($rows_linhaPesquisa1['nomePesquisa']);?></option>
+
+<?php } ?>	
 
 
-$result_professores ="SELECT P.nomeProfessor,
-V.idProfessor
-FROM linhadepesquisa L, professor P, vinculo V 
-WHERE V.idProfessor = P.idProfessor and
-V.idLinhaPesquisa = $linhaPesquisa "; 
+</select>
+</div>
 
-$resultado_professores= mysqli_query($con, $result_professores);
+<div class="form-group col-md-4">
 
-?>
 
-                        <?php } ?>
-                         </tr>
-                       </thead>   
+         <label>ORIENTADOR (PRIORIDADE 1)  </label>
+         <span class="carregando">Aguarde, carregando...</span>
+				<select class="form-control" id="orientador1" name="orientador1">
+        <option value="">Escolha o orientador</option>
+			</select><br>
+</div>
 
-<tbody>
-	<?php while($rows_professores  = mysqli_fetch_assoc($resultado_professores )){ 
-        ?>
-    <tr>
-   <td><input type="checkbox" value="<?php echo $rows_professores['idProfessor'];?>">
-    </td>
-    <td>
- <?php echo  $rows_professores['nomeProfessor']; ?>
-</td>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+		<script type="text/javascript">
+		  google.load("jquery", "1.4.2");
+		</script>
+		
+		<script type="text/javascript">
+		$(function(){
+			$('#id_linhapesquisa1').change(function(){
+				if( $(this).val() ) {
+					$('#orientador1').hide();
+					$('.carregando').show();
+					$.getJSON('processa_orientador1.php?search=',{id_linhapesquisa1: $(this).val(), ajax: 'true'}, function(j){
+						var options = '<option value="">Escolha o orientador</option>';	
+						for (var i = 0; i < j.length; i++) {
+                  
+							options += '<option value="' + j[i].idProfessor + '">' + j[i].nomeProfessor + '</option>';
+						}
+            	
+						$('#orientador1').html(options).show();
+						$('.carregando').hide();
+					});
+				} else {
+					$('#orientador1').html('<option value="">– Escolha o orientador –</option>');
+				}
+			});
+		});
+		</script>
 
-<?php } ?>
-</tbody>
 
-	</table>
-  
-  
-  </div>
+<div class="form-group col-md-8">
 
-      
+<label>SELECIONE A LINHA DE PESQUISA DE SEU ORIENTADOR(PRIORIDADE 2) </label>
+<br>
+                <select class="form-control" id="id_linhapesquisa2" name="id_linhapesquisa2">
+
+  <option>Selecione a linha de pesquisa</option>
+              
+  <?php while($rows_linhaPesquisa2 = mysqli_fetch_assoc($resultado_linhaPesquisa2)){ ?>
+
+<option value="<?php echo $rows_linhaPesquisa2['idLinhaPesquisa'];?>"><?php echo  ($rows_linhaPesquisa2['nomePesquisa']);?></option>
+
+<?php } ?>	
+
+
+</select>
+</div>
+
+		
+		<script type="text/javascript">
+		$(function(){
+			$('#id_linhapesquisa2').change(function(){
+				if( $(this).val() ) {
+					$('#orientador2').hide();
+					$('.carregando').show();
+					$.getJSON('processa_orientador2.php?search=',{id_linhapesquisa2: $(this).val(), ajax: 'true'}, function(j){
+						var options = '<option value="">Escolha o orientador</option>';	
+						for (var i = 0; i < j.length; i++) {
+							options += '<option value="' + j[i].idProfessor + '">' + j[i].nomeProfessor + '</option>';
+						}	
+						$('#orientador2').html(options).show();
+						$('.carregando').hide();
+					});
+				} else {
+					$('#orientador2').html('<option value="">– Escolha o orientador –</option>');
+				}
+			});
+		});
+		</script>
+
+
+<div class="form-group col-md-4">
+
+<label>ORIENTADOR (PRIORIDADE 2)  </label>
+         <span class="carregando">Aguarde, carregando...</span>
+				<select class="form-control" id="orientador2" name="orientador2">
+        <option value="">Escolha o orientador</option>
+			</select><br>
+</div>
+
+
+<div class="form-group col-md-8">
+
+<label>SELECIONE A LINHA DE PESQUISA DE SEU ORIENTADOR(PRIORIDADE 3) </label>
+<br>
+                <select class="form-control" id=id_linhapesquisa3 name="id_linhapesquisa3">
+
+  <option>Selecione a linha de pesquisa</option>
+              
+  <?php while($rows_linhaPesquisa3 = mysqli_fetch_assoc($resultado_linhaPesquisa3)){ ?>
+
+<option value="<?php echo $rows_linhaPesquisa3['idLinhaPesquisa'];?>"><?php echo  ($rows_linhaPesquisa3['nomePesquisa']);?></option>
+
+<?php } ?>	
+
+
+</select>
+</div>
+
+<script type="text/javascript">
+		$(function(){
+			$('#id_linhapesquisa3').change(function(){
+				if( $(this).val() ) {
+					$('#orientador3').hide();
+					$('.carregando').show();
+					$.getJSON('processa_orientador3.php?search=',{id_linhapesquisa3: $(this).val(), ajax: 'true'}, function(j){
+						var options = '<option value="">Escolha o orientador</option>';	
+						for (var i = 0; i < j.length; i++) {
+							options += '<option value="' + j[i].idProfessor + '">' + j[i].nomeProfessor + '</option>';
+						}	
+						$('#orientador3').html(options).show();
+						$('.carregando').hide();
+					});
+				} else {
+					$('#orientador3').html('<option value="">– Escolha o orientador –</option>');
+				}
+			});
+		});
+		</script>
+
+<div class="form-group col-md-4">
+
+<label>ORIENTADOR (PRIORIDADE 3)  </label>
+         <span class="carregando">Aguarde, carregando...</span>
+				<select class="form-control" id="orientador3" name="orientador3">
+        <option value="">Escolha o orientador</option>
+			</select><br>
+</div>
+
+</div>      
                            <ul class="list-inline pull-right">
                             <li><button type="button" class="btn btn-default prev-step">Voltar</button></li>
                             <li><button type="button" class="btn btn-primary next-step">Salvar e continuar</button></li>
@@ -366,22 +622,78 @@ $resultado_professores= mysqli_query($con, $result_professores);
                     </div>
 
 
-                    <div class="tab-pane" role="tabpanel" id="step4">
-                        <h3>Formação</h3>
+                    <div class="tab-pane" role="tabpanel" id="complete">
+                        <center><h3>Formação Universitária</h3></center>
 
+
+                        <div class="x_panel">
+
+<div class="form-group col-md-6">
+  <label >Curso de graduação</label>
+  <input type="text" class="form-control" name="cursoGraduacao">
+</div>
+
+<div class="form-group col-md-6">
+  <label >Instituição</label>
+  <input type="text" class="form-control" name="instituicao">
+</div>
+
+<div class="form-group col-md-4">
+  <label >Ano de conclusão</label>
+  <input type="text" class="form-control" name="anoConclusao">
+</div>
+
+<div class="form-group col-md-8">
+
+      <label> Selecione seu grau acadêmico</label>
+      <select class="form-control" name="selectGrauAcademico">
+      <option></option>
+        <option value="Bacharelado">Bacharelado</option>
+        <option value="Licenciatura">Licenciatura</option>
+        <option value="BachareladoLicenciatura">Bacharelado e Licenciatura</option>
+      </select>
+  
+</div>
+
+
+</div>
+<center><h3>Outra Graduação(*opcional)</h3></center>
+<div class="x_panel">
+
+<div class="form-group col-md-6">
+  <label >Curso de graduação</label>
+  <input type="text" class="form-control" name="cursoGraduacao2">
+</div>
+
+<div class="form-group col-md-6">
+  <label >Instituição</label>
+  <input type="text" class="form-control" name="instituicao2">
+</div>
+
+<div class="form-group col-md-4">
+  <label >Ano de conclusão</label>
+  <input type="text" class="form-control" name="anoConclusao2">
+</div>
+
+<div class="form-group col-md-8">
+
+      <label> Selecione seu grau acadêmico</label>
+    <select class="form-control" name="selectGrauAcademico2">
+      <option></option>
+        <option value="Bacharelado">Bacharelado</option>
+        <option value="Licenciatura">Licenciatura</option>
+        <option value="BachareladoLicenciatura">Bacharelado e Licenciatura</option>
+      </select>
+  
+</div>
+
+</div>
                             <ul class="list-inline pull-right">
                             <li><button type="button" class="btn btn-default prev-step">Voltar</button></li>
                             <li><button type="button" class="btn btn-primary btn-info-full next-step">Salvar e continuar</button></li>
                         </ul>
                     </div>
 
-
-                    <div class="tab-pane" role="tabpanel" id="complete">
-                        <h3>Completo</h3>
-                        <p>Sua inscrição foi efetuada com sucesso!</p>
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
             </form>
         </div>
     </section>
