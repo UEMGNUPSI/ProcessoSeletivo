@@ -33,9 +33,6 @@ $resultado_orientadores3= mysqli_query($con, $result_orientadores3);
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="../JS/inscricao.js"></script>
 
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
 
 		<section>
@@ -284,7 +281,7 @@ $resultado_orientadores3= mysqli_query($con, $result_orientadores3);
                     </div>
                 
                     <div class="tab-pane" role="tabpanel" id="step3">
-                       <center> <h3>Endereço Comercial(*opcional)</h3></center>
+                       <center> <h3>Endereço Comercial (*opcional)</h3></center>
 
                         <div class="x_panel">
 
@@ -461,7 +458,7 @@ $resultado_orientadores3= mysqli_query($con, $result_orientadores3);
 
 <label>SELECIONE A LINHA DE PESQUISA DE SEU ORIENTADOR(PRIORIDADE 1) </label>
 <br>
-                <select class="form-control" id=id_linhapesquisa1 name="id_linhapesquisa1">
+                <select class="form-control" id="id_linhapesquisa1" name="id_linhapesquisa1">
 
   <option>Selecione a linha de pesquisa</option>
               
@@ -499,9 +496,22 @@ $resultado_orientadores3= mysqli_query($con, $result_orientadores3);
 					$.getJSON('processa_orientador1.php?search=',{id_linhapesquisa1: $(this).val(), ajax: 'true'}, function(j){
 						var options = '<option value="">Escolha o orientador</option>';	
 						for (var i = 0; i < j.length; i++) {
-                  
-							options += '<option value="' + j[i].idProfessor + '">' + j[i].nomeProfessor + '</option>';
-						}
+              if ((id_linhapesquisa2.value == id_linhapesquisa1.value) || (id_linhapesquisa1.value == id_linhapesquisa3.value))
+{
+ if ((orientador2.value==j[i].idProfessor)||(j[i].idProfessor==orientador3.value) )	
+	{
+       		
+       }
+ else     
+	{
+
+	options += '<option value="' + j[i].idProfessor + '">' + j[i].nomeProfessor + '</option>';					
+}	
+}	
+else{
+  options += '<option value="' + j[i].idProfessor + '">' + j[i].nomeProfessor + '</option>';
+}
+						}	
             	
 						$('#orientador1').html(options).show();
 						$('.carregando').hide();
@@ -542,7 +552,24 @@ $resultado_orientadores3= mysqli_query($con, $result_orientadores3);
 					$.getJSON('processa_orientador2.php?search=',{id_linhapesquisa2: $(this).val(), ajax: 'true'}, function(j){
 						var options = '<option value="">Escolha o orientador</option>';	
 						for (var i = 0; i < j.length; i++) {
-							options += '<option value="' + j[i].idProfessor + '">' + j[i].nomeProfessor + '</option>';
+
+              
+                  if ((id_linhapesquisa2.value == id_linhapesquisa1.value) || (id_linhapesquisa2.value == id_linhapesquisa3.value))
+{
+ if ((orientador1.value==j[i].idProfessor)||(j[i].idProfessor==orientador3.value) )	
+	{
+       		
+       }
+ else     
+	{
+
+	options += '<option value="' + j[i].idProfessor + '">' + j[i].nomeProfessor + '</option>';					
+}	
+}	
+else{
+  options += '<option value="' + j[i].idProfessor + '">' + j[i].nomeProfessor + '</option>';
+}
+							//options += '<option value="' + j[i].idProfessor + '">' + j[i].nomeProfessor + '</option>';
 						}	
 						$('#orientador2').html(options).show();
 						$('.carregando').hide();
@@ -592,7 +619,22 @@ $resultado_orientadores3= mysqli_query($con, $result_orientadores3);
 					$.getJSON('processa_orientador3.php?search=',{id_linhapesquisa3: $(this).val(), ajax: 'true'}, function(j){
 						var options = '<option value="">Escolha o orientador</option>';	
 						for (var i = 0; i < j.length; i++) {
-							options += '<option value="' + j[i].idProfessor + '">' + j[i].nomeProfessor + '</option>';
+              if ((id_linhapesquisa1.value == id_linhapesquisa3.value) || (id_linhapesquisa2.value == id_linhapesquisa3.value))
+{
+ if ((orientador2.value==j[i].idProfessor)||(j[i].idProfessor==orientador1.value) )	
+	{
+       		
+       }
+ else     
+	{
+
+	options += '<option value="' + j[i].idProfessor + '">' + j[i].nomeProfessor + '</option>';					
+}	
+}	
+else{
+  options += '<option value="' + j[i].idProfessor + '">' + j[i].nomeProfessor + '</option>';
+}
+				
 						}	
 						$('#orientador3').html(options).show();
 						$('.carregando').hide();
