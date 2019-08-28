@@ -410,11 +410,11 @@ $resultado_orientadores3= mysqli_query($con, $result_orientadores3);
   <label>Assinale</label>
   <br>
   <div class="form-check">
-  <input class="form-check-input" type="radio" name="Opcao" value="Canhoto (a)" id="defaultCheck2">
+  <input class="form-check-input" type="radio" name="canhoto_destro" value="Canhoto (a)" id="defaultCheck2">
   <label class="form-check-label" for="defaultCheck1">Canhoto (a)</label>
   </div>
   <div class="form-check">
-  <input class="form-check-input" type="radio" name="Opcao" value="Destro (a)" id="defaultCheck2">
+  <input class="form-check-input" type="radio" name="canhoto_destro" value="Destro (a)" id="defaultCheck2">
   <label class="form-check-label" for="defaultCheck2">Destro (a)</label>
   </div>
 
