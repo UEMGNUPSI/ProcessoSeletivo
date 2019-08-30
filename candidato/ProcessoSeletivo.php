@@ -54,8 +54,27 @@ $resultado_InscreveProcesso = mysqli_query($con, $result_InscreveProcesso);
 	
 	
 <td>
-<button type="button" class="btn btn-primary view_data"   id="<?php echo $rows_InscreveProcesso['idProcessoSeletivo']; ?>">Mais informçãoes</button>
-   
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal<?php echo $rows_InscreveProcesso['idProcessoSeletivo']; ?>">Mais Informações</button>
+<div class="modal fade" id="exampleModal<?php echo $rows_InscreveProcesso['idProcessoSeletivo']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Saber Mais</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <label for=""><?php echo $rows_InscreveProcesso['nomeProcesso'];?></label>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fecahar</button>
+       
+      </div>
+    </div>
+  </div>
+</div>
 	</td>
 	</tr>
 
@@ -87,27 +106,7 @@ $(document).ready(function (){
 			});
             </Script>
          
-    <div class="modal fade" id="visualizarInfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Título do modal</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-      
-
-      <span id="visul_usuario"></span>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-        
-      </div>
-    </div>
-  </div>
-</div>
+         
     
  <!-- Datatables -->
     <script src="../JS/tables/jquery.dataTables.min.js"></script>
