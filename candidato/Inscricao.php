@@ -91,11 +91,10 @@ $linha = $res->fetch_assoc();
                 </ul>
             </div>
 
-            <form role="cadastro" action="envioFormularioMestrado_ca.php" method="POST">
+            <form id="cadastro" role="cadastro" action="envioFormularioMestrado_ca.php" method="POST">
                 <div class="tab-content">
                     <div class="tab-pane active" role="tabpanel" id="step1">
                        <center> <h3>Informações Pessoais</h3></center>
-
         <div class="x_panel">
 
         <input type="hidden" class="form-control" name="idCandidato" value="<?php echo $linha['idCandidato']?>">
@@ -291,7 +290,7 @@ $linha = $res->fetch_assoc();
   </div>
                            <ul class="list-inline pull-right">
                             <li><button type="button" class="btn btn-default prev-step">Voltar</button></li>
-                            <li><button type="button" id="btnEnderecoResidencial" onclick="valida()" disabled class="btn btn-primary next-step">Salvar e continuar</button></li>
+                            <li><button type="button" id="btnEnderecoResidencial"  class="btn btn-primary next-step">Salvar e continuar</button></li>
                         </ul>
                     </div>
 
@@ -769,7 +768,9 @@ else{
         </div>
     </section>
     <script src="../JS/mascaras.js"></script>
-
+    <script src="./JS/validacao.js"></script>
+    <script src="./JS/jquery.js"></script>
+    <script src="./JS/jquery.validate.js"></script>
                       <?php
 include_once("FooterCandidato.php");
 
