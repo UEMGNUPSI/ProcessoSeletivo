@@ -163,7 +163,7 @@ function validaSenha (input){
         </div> 
         </div> 
        
-  
+        <script src="../JS/tables/jquery.mascaras.js"></script>
 
 
 <?php

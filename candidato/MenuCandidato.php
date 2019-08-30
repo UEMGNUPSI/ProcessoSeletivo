@@ -64,11 +64,17 @@
                         <div class="menu_section">
                             <h3>Geral</h3>
                             <ul class="nav side-menu">
-                               
+                            
+                                <li><a href="ProcessoSeletivo.php"><i class="fa "></i> Processo Seletivo <span class="fa fa-chevron-down"></span></a>
+                                
+                                </li>
+                                <li><a href="MinhasInscricoes.php"><i class="fa "></i> Minhas Incrições <span class="fa fa-chevron-down"></span></a>
                             </ul>
+                            
                         </div>
 
                     </div>
+                    
                     <!-- /sidebar menu -->
         
                 </div>
