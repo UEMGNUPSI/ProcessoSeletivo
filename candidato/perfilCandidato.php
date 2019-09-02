@@ -100,7 +100,7 @@ function validaSenha (input){
               <label  for="email">E-mail
               </label>
               
-                <input class="form-control col-md-7 col-xs-12" name="email" maxlength="250" value="<?php echo $linha['email']?>" onblur="checarEmail();" type="text" " >
+                <input class="form-control col-md-7 col-xs-12" disabled name="email" maxlength="250" value="<?php echo $linha['email']?>" onblur="checarEmail();" type="text" " >
               
             </div>
 
