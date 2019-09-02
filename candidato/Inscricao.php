@@ -18,14 +18,19 @@ $resultado_linhaPesquisa2= mysqli_query($con, $result_linhaPesquisa2);
 $result_linhaPesquisa3 ="SELECT * FROM linhadepesquisa";
 $resultado_linhaPesquisa3= mysqli_query($con, $result_linhaPesquisa3);
 
-$result_orientadores1 ="SELECT * FROM professor";
-$resultado_orientadores1= mysqli_query($con, $result_orientadores1);
+if(!isset($_SESSION['user']))
+{
+    header('location: ../loguin.php');
+}
 
-$result_orientadores2 ="SELECT * FROM professor";
-$resultado_orientadores2= mysqli_query($con, $result_orientadores2);
+$idCandidato=$_SESSION['idCandidato'];
 
-$result_orientadores3 ="SELECT * FROM professor";
-$resultado_orientadores3= mysqli_query($con, $result_orientadores3);
+$sql = "SELECT * FROM Candidato WHERE idCandidato = '$idCandidato' " ;
+
+
+$res = $con-> query($sql);
+$linha = $res->fetch_assoc();
+
 ?>
 
 <link rel="stylesheet" type="text/css" href="../CSS/inscricao.css">
@@ -86,63 +91,65 @@ $resultado_orientadores3= mysqli_query($con, $result_orientadores3);
                 </ul>
             </div>
 
-            <form role="cadastro">
+            <form id="cadastro" role="cadastro" action="envioFormularioMestrado_ca.php" method="POST">
                 <div class="tab-content">
                     <div class="tab-pane active" role="tabpanel" id="step1">
                        <center> <h3>Informações Pessoais</h3></center>
-
         <div class="x_panel">
+
+        <input type="hidden" class="form-control" name="idCandidato" value="<?php echo $linha['idCandidato']?>">
+
 
     <div class="form-group col-md-6">
       <label >Nome completo</label>
-      <input type="text" class="form-control" name="nome">
+      <input type="text" class="form-control" name="nome" value="<?php echo $linha['nome']?>" disabled>
     </div>
 
     
     <div class="form-group col-md-6">
       <label >Data de Nascimento</label>
-      <input type="date" class="form-control" name="dtNascimento">
+      <input type="date" class="form-control" name="dtNascimento" value="<?php echo $linha['dtNascimento']?>" disabled>
     </div>
 
 
   <div class="form-row">
     <div class="form-group col-md-6">
       <label>Nome da mãe</label>
-      <input type="text" class="form-control" name="nomeMae">
+      <input type="text" class="form-control" name="nomeMae" value="<?php echo $linha['nomeMae']?>" disabled>
     </div>
 
     <div class="form-group col-md-6">
       <label>Nome do pai</label>
-      <input type="text" class="form-control" name="nomePai">
+      <input type="text" class="form-control" name="nomePai" value="<?php echo $linha['nomePai']?>"disabled>
     </div>
 
 
 <div class="form-group col-md-6">
       <label>Nacionalidade</label>
-      <input type="text" class="form-control" name="nacionalidade">
+      <input type="text" class="form-control" name="nacionalidade" value="<?php echo $linha['nacionalidade']?>" disabled>
     </div>
 
     <div class="form-group col-md-6">
       <label>Naturalidade</label>
-      <input type="text" class="form-control" name="naturalidade">
+      <input type="text" class="form-control" name="naturalidade" value="<?php echo $linha['naturalidade']?>" disabled>
     </div>
 
 
     <div class="form-group col-md-4">
       <label for="inputState">Estado civil</label>
-      <select id="inputState" class="form-control" name="selectEstadoCivil">
-        <option >Selecione</option>
+      <select id="inputState" class="form-control" name="selectEstadoCivil"disabled>
+      <option value= "<?php echo $linha['estadoCivil'];?>"><?php echo $linha['estadoCivil'];?></option>        
         <option value="Solteiro (a)">Solteiro (a)</option>
-        <option value="Casado (a)">Casado (a)</option>
-        <option value="Viúvo (a)">Viúvo (a)</option>
-        <option value="Divorciado (a)">Divorciado (a)</option>
+        <option id="Casado" value="Casado (a)">Casado (a)</option>
+        <option name="Viuvo" value="Viúvo (a)">Viúvo (a)</option>
+        <option name="Divorciado" value="Divorciado (a)">Divorciado (a)</option>
       </select>
     </div>
 
     <div class="form-group col-md-4">
       <label for="inputState">Sexo </label>
-      <select id="inputState" class="form-control" name="selectSexo">
-      <option>Selecione</option>
+      <select id="inputState" class="form-control" name="selectSexo"disabled>
+      <option value= "<?php echo $linha['sexo'];?>"><?php echo $linha['sexo'];?></option>        
         <option value="Feminino">Feminino</option>
         <option value="Masculino">Masculino</option>
       </select>
@@ -150,8 +157,8 @@ $resultado_orientadores3= mysqli_query($con, $result_orientadores3);
 
     <div class="form-group col-md-4">
       <label for="inputState">Raça/etnia </label>
-      <select id="inputState" class="form-control" name="selectEtnia">
-      <option>Selecione</option>
+      <select id="inputState" class="form-control" name="selectEtnia"disabled>
+      <option value= "<?php echo $linha['etnia'];?>"><?php echo $linha['etnia'];?></option>        
         <option value="">Branco (a)</option>
         <option>Negro (a)</option>
         <option>Pardo (a)</option>
@@ -162,14 +169,21 @@ $resultado_orientadores3= mysqli_query($con, $result_orientadores3);
 
     <div class="form-group col-md-6">
       <label>RG</label>
-      <input type="text" class="form-control" name="rg">
+      <input type="text" class="form-control" name="rg" value="<?php echo $linha['rg']?>" disabled>
     </div>
 
-    <div class="form-group col-md-2">
+  <div class="form-group col-md-2">
       <label>Orgão Expedidor</label>
-      <input type="text" class="form-control" name="orgaoExpedidor">
+      <input type="text" class="form-control" name="orgaoExpedidor" value="<?php echo $linha['orgaoExp']?>" disabled>
     </div>
   </div>
+  <br>
+
+  <div class="form-group col-md-8">
+   <label><h3><a onClick="window.location.href='perfilCandidato.php'" target="_blank" title="Editar meus dados"> Para editar suas informações pessoais,clique aqui</a>
+<h3></label>
+</div>
+
 
 </div>
 
@@ -182,17 +196,17 @@ $resultado_orientadores3= mysqli_query($con, $result_orientadores3);
                     <div class="tab-pane" role="tabpanel" id="step2">
                        <center> <h3>Endereço Residencial</h3></center>
 
+<form name="form1">
                         <div class="x_panel">
-
 <div class="form-group col-md-6">
   <label >Rua/Av</label>
-  <input type="text" class="form-control" name="rua">
+  <input type="text" class="form-control" id="rua" name="rua" required="required">
 </div>
 
 
 <div class="form-group col-md-2">
   <label >Nº</label>
-  <input type="text" class="form-control" name="numero">
+  <input type="text" class="form-control" id="numero" name="numero" required="required">
 </div>
 
 <div class="form-group col-md-4">
@@ -203,19 +217,19 @@ $resultado_orientadores3= mysqli_query($con, $result_orientadores3);
 <div class="form-row">
 <div class="form-group col-md-6">
   <label>Bairro</label>
-  <input type="text" class="form-control" name="bairro">
+  <input type="text" class="form-control" name="bairro" required="required">
 </div>
 
 <div class="form-row">
 <div class="form-group col-md-6">
   <label>Cidade</label>
-  <input type="text" class="form-control" name="cidade">
+  <input type="text" class="form-control" name="cidade" required="required">
 </div>
 
 
 <div class="form-group col-md-4">
   <label>UF </label>
-  <select class="form-control" name="selectEstado">
+  <select class="form-control" name="selectEstado" required="required">
   <option >Selecione seu estado</option>
                   <option value="Acre">Acre</option>
                   <option value="Alagoas">Alagoas</option>
@@ -249,24 +263,24 @@ $resultado_orientadores3= mysqli_query($con, $result_orientadores3);
 
 <div class="form-group col-md-4">
   <label>CEP</label>
-  <input type="text" class="form-control" name="cep">
+  <input type="text" class="form-control" name="cep" required onkeyup="mascara('##.###-###',this,event,true)">
 </div>
 
 
 <div class="form-group col-md-4">
   <label>Tel. Celular</label>
-  <input type="text" class="form-control" name="telCelular">
+  <input type="text" class="form-control" name="telCelular" required="required" onkeyup="mascara('(##)#####-####',this,event,true)">
 </div>
 
 <div class="form-group col-md-4">
   <label>Tel. Residencial</label>
-  <input type="text" class="form-control" name="telResidencial">
+  <input type="text" class="form-control" name="telResidencial" onkeyup="mascara('(##)####-####',this,event,true)">
 </div>
 
 
 <div class="form-group col-md-8">
   <label>Email</label>
-  <input type="mail" class="form-control" name="EmailContato">
+  <input type="mail" class="form-control" name="emailContato" required="required" onblur="checarEmail();" >
 </div>
 
 </div>
@@ -276,10 +290,25 @@ $resultado_orientadores3= mysqli_query($con, $result_orientadores3);
   </div>
                            <ul class="list-inline pull-right">
                             <li><button type="button" class="btn btn-default prev-step">Voltar</button></li>
-                            <li><button type="button" class="btn btn-primary next-step">Salvar e continuar</button></li>
+                            <li><button type="button" id="btnEnderecoResidencial"  class="btn btn-primary next-step">Salvar e continuar</button></li>
                         </ul>
                     </div>
-                
+
+</form>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script>
+
+$(document.form1).ready(function(){
+  $('#campo').on('input', function(){
+    $('#btnEnderecoResidencial').prop('disabled', $(this).val().length < 0);
+  });
+});
+</script>
+
+
+
+
                     <div class="tab-pane" role="tabpanel" id="step3">
                        <center> <h3>Endereço Comercial (*opcional)</h3></center>
 
@@ -362,19 +391,19 @@ $resultado_orientadores3= mysqli_query($con, $result_orientadores3);
 
 <div class="form-group col-md-4">
   <label>CEP</label>
-  <input type="text" class="form-control" name="cepComercial">
+  <input type="text" class="form-control" name="cepComercial" onkeyup="mascara('##.###-####',this,event,true)">
 </div>
 
 
 <div class="form-group col-md-4">
   <label>Telefone</label>
-  <input type="text" class="form-control" name="telefoneComercial">
+  <input type="text" class="form-control" name="telefoneComercial" onkeyup="mascara('(##)####-####',this,event,true)">
 </div>
 
 
 <div class="form-group col-md-8">
   <label>Email</label>
-  <input type="mail" class="form-control" name="emailComercial">
+  <input type="mail" class="form-control" name="emailComercial" onblur="checarEmail();">
 </div>
 
 </div>
@@ -422,7 +451,7 @@ $resultado_orientadores3= mysqli_query($con, $result_orientadores3);
 <div class="form-group col-md-8">
 
       <label> UNIDADE DA UEMG EM QUE PRETENDE REALIZAR A PROVA ESCRITA</label>
-      <select class="form-control" name="localProva">
+      <select class="form-control" name="localProva" required="required">
       <option>Selecione</option>
         <option value="Frutal">Frutal</option>
         <option value="Faculdade de Educação (FaE) – Belo Horizonte">Faculdade de Educação (FaE) – Belo Horizonte</option>
@@ -434,7 +463,7 @@ $resultado_orientadores3= mysqli_query($con, $result_orientadores3);
 
 <label>LINHA DE PESQUISA  </label>
 <br>
-                <select class="form-control" id=selectlinhapesquisa name="select_linhapesquisa">
+                <select class="form-control" id=selectlinhapesquisa name="select_linhapesquisa" required="required">
 
   <option>Selecione a linha de pesquisa</option>
               
@@ -458,7 +487,7 @@ $resultado_orientadores3= mysqli_query($con, $result_orientadores3);
 
 <label>SELECIONE A LINHA DE PESQUISA DE SEU ORIENTADOR(PRIORIDADE 1) </label>
 <br>
-                <select class="form-control" id="id_linhapesquisa1" name="id_linhapesquisa1">
+                <select class="form-control" id="id_linhapesquisa1" name="id_linhapesquisa1" required="required">
 
   <option>Selecione a linha de pesquisa</option>
               
@@ -477,7 +506,7 @@ $resultado_orientadores3= mysqli_query($con, $result_orientadores3);
 
          <label>ORIENTADOR (PRIORIDADE 1)  </label>
          <span class="carregando">Aguarde, carregando...</span>
-				<select class="form-control" id="orientador1" name="orientador1">
+				<select class="form-control" id="orientador1" name="orientador1" required="required">
         <option value="">Escolha o orientador</option>
 			</select><br>
 </div>
@@ -528,7 +557,7 @@ else{
 
 <label>SELECIONE A LINHA DE PESQUISA DE SEU ORIENTADOR(PRIORIDADE 2) </label>
 <br>
-                <select class="form-control" id="id_linhapesquisa2" name="id_linhapesquisa2">
+                <select class="form-control" id="id_linhapesquisa2" name="id_linhapesquisa2" required="required">
 
   <option>Selecione a linha de pesquisa</option>
               
@@ -586,7 +615,7 @@ else{
 
 <label>ORIENTADOR (PRIORIDADE 2)  </label>
          <span class="carregando">Aguarde, carregando...</span>
-				<select class="form-control" id="orientador2" name="orientador2">
+				<select class="form-control" id="orientador2" name="orientador2" required="required">
         <option value="">Escolha o orientador</option>
 			</select><br>
 </div>
@@ -596,7 +625,7 @@ else{
 
 <label>SELECIONE A LINHA DE PESQUISA DE SEU ORIENTADOR(PRIORIDADE 3) </label>
 <br>
-                <select class="form-control" id=id_linhapesquisa3 name="id_linhapesquisa3">
+                <select class="form-control" id=id_linhapesquisa3 name="id_linhapesquisa3" required="required">
 
   <option>Selecione a linha de pesquisa</option>
               
@@ -650,7 +679,7 @@ else{
 
 <label>ORIENTADOR (PRIORIDADE 3)  </label>
          <span class="carregando">Aguarde, carregando...</span>
-				<select class="form-control" id="orientador3" name="orientador3">
+				<select class="form-control" id="orientador3" name="orientador3" required="required">
         <option value="">Escolha o orientador</option>
 			</select><br>
 </div>
@@ -671,23 +700,23 @@ else{
 
 <div class="form-group col-md-6">
   <label >Curso de graduação</label>
-  <input type="text" class="form-control" name="cursoGraduacao">
+  <input type="text" class="form-control" name="cursoGraduacao" required="required">
 </div>
 
 <div class="form-group col-md-6">
   <label >Instituição</label>
-  <input type="text" class="form-control" name="instituicao">
+  <input type="text" class="form-control" name="instituicao" required="required">
 </div>
 
 <div class="form-group col-md-4">
   <label >Ano de conclusão</label>
-  <input type="text" class="form-control" name="anoConclusao">
+  <input type="text" class="form-control" name="anoConclusao" required="required">
 </div>
 
 <div class="form-group col-md-8">
 
       <label> Selecione seu grau acadêmico</label>
-      <select class="form-control" name="selectGrauAcademico">
+      <select class="form-control" name="selectGrauAcademico" required="required">
       <option></option>
         <option value="Bacharelado">Bacharelado</option>
         <option value="Licenciatura">Licenciatura</option>
@@ -731,14 +760,17 @@ else{
 </div>
                             <ul class="list-inline pull-right">
                             <li><button type="button" class="btn btn-default prev-step">Voltar</button></li>
-                            <li><button type="button" class="btn btn-primary btn-info-full next-step">Salvar e continuar</button></li>
+                            <li><button type="submit" class="btn btn-primary btn-info-full next-step">Finalizar</button></li>
                         </ul>
                     </div>
 
             </form>
         </div>
     </section>
-
+    <script src="../JS/mascaras.js"></script>
+    <script src="./JS/validacao.js"></script>
+    <script src="./JS/jquery.js"></script>
+    <script src="./JS/jquery.validate.js"></script>
                       <?php
 include_once("FooterCandidato.php");
 
