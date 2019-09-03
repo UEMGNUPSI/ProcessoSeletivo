@@ -9,14 +9,15 @@ $dataFinal = $_POST["dataFinal"];
 $horaInicio = $_POST["horaInicio"];
 $horaFinal = $_POST["horaFinal"];
 $coordenador = $_POST["coordenador"];
+$TipoProcessoSeletivo = $_POST["TipoProcessoSeletivo"]; 
 $idCurso = $_POST["select_curso"];
 
 
 
 
 
-$sql = "INSERT INTO processoseletivo (nomeProcesso,descricao,dataInicio,dataFinal,horaInicio,horaFinal,idProfessor,idCurso) 
-VALUES ('$nomeProcesso','$descricao','$dataInicio','$dataFinal','$horaInicio','$horaFinal','$coordenador','$idCurso')";
+$sql = "INSERT INTO processoseletivo (nomeProcesso,descricao,dataInicio,dataFinal,horaInicio,horaFinal,idTipoProcesso,idProfessor,idCurso) 
+VALUES ('$nomeProcesso','$descricao','$dataInicio','$dataFinal','$horaInicio','$horaFinal','$TipoProcessoSeletivo','$coordenador','$idCurso')";
 
 
 

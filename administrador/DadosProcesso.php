@@ -18,6 +18,9 @@ $resultado_curso= mysqli_query($con, $result_curso);
 $result_professor ="SELECT * FROM professor";
 $resultado_professor= mysqli_query($con, $result_professor);   
 
+$result_tipoProcesso ="SELECT * FROM tipoProcesso";
+$resultado_tipoProcesso= mysqli_query($con, $result_tipoProcesso);   
+
 ?>
 
 
@@ -60,6 +63,31 @@ $resultado_professor= mysqli_query($con, $result_professor);
                 <input type="text" name="descricao" maxlength="20" class="form-control col-md-7 col-xs-12" required="required" value="<?php echo $linha['descricao']?>" >
               </div>
             </div>
+
+
+            <div class="item form-group">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12">Tipo Processo Seletivo
+              </label>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <select class="form-control" name="TipoProcessoSeletivo">
+        
+  <option>Selecione</option>
+              
+  <?php while($rows_tipoProcesso = mysqli_fetch_assoc($resultado_tipoProcesso)){ ?>
+
+<option value="<?php echo $rows_tipoProcesso['idTipoProcesso'];?>
+"<?php if ($linha['idTipoProcesso']==$rows_tipoProcesso['idTipoProcesso']){ echo "selected";}?>
+><?php echo  ($rows_tipoProcesso['nomeTipoProcesso']);?></option>
+
+<?php } ?>	
+
+</select>
+                  </div>
+            </div>
+
+
+
+
             <div class="item form-group">
               <label class="control-label col-md-3 col-sm-3 col-xs-12" for="data">Data Início
               </label>

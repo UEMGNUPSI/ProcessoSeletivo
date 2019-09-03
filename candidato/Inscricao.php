@@ -31,6 +31,12 @@ $sql = "SELECT * FROM Candidato WHERE idCandidato = '$idCandidato' " ;
 $res = $con-> query($sql);
 $linha = $res->fetch_assoc();
 
+$idProcessoSeletivo = $_GET["idProcessoSeletivo"];
+$sql2 = "SELECT * FROM ProcessoSeletivo WHERE idProcessoSeletivo = '$idProcessoSeletivo' " ;
+$res2 = $con-> query($sql2);
+$linha2 = $res2->fetch_assoc();
+
+
 ?>
 
 <link rel="stylesheet" type="text/css" href="../CSS/inscricao.css">
@@ -98,6 +104,7 @@ $linha = $res->fetch_assoc();
         <div class="x_panel">
 
         <input type="hidden" class="form-control" name="idCandidato" value="<?php echo $linha['idCandidato']?>">
+        <input type="hidden" name="idProcessoSeletivo" value="<?php echo $linha2['idProcessoSeletivo']; ?>">
 
 
     <div class="form-group col-md-6">
@@ -317,7 +324,7 @@ $(document.form1).ready(function(){
 
   <div class="form-group col-md-6">
   <label >Empresa/Instituição</label>
-  <input type="text" class="form-control" name="emrpesaInstituicao">
+  <input type="text" class="form-control" name="empresaInstituicao">
 </div>
 
 

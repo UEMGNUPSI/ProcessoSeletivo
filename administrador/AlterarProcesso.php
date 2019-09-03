@@ -10,12 +10,13 @@ $dataFinal = $_POST["dataFinal"];
 $horaInicio = $_POST["horaInicio"];
 $horaFinal = $_POST["horaFinal"];
 $coordenador = $_POST["coordenador"];
+$TipoProcessoSeletivo = $_POST["TipoProcessoSeletivo"]; 
 $selectCurso = $_POST["select_Curso"];
 
 
 
 $sql = "UPDATE processoseletivo set nomeProcesso ='$nomeProcesso', descricao ='$descricao', dataInicio ='$dataInicio', dataFinal ='$dataFinal', 
-horaInicio ='$horaInicio', horaFinal ='$horaFinal', coordenador ='$coordenador', idCurso = $selectCurso where idProcessoSeletivo = $idProcessoSeletivo "; 
+horaInicio ='$horaInicio', horaFinal ='$horaFinal', idProfessor ='$coordenador', idTipoProcesso ='$TipoProcessoSeletivo' , idCurso = $selectCurso where idProcessoSeletivo = $idProcessoSeletivo "; 
 
 
 

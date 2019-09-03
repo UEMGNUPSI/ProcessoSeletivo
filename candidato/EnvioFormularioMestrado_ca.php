@@ -3,7 +3,7 @@
 include_once "../DAO/conexao.php";
 
 $idCandidato = $_POST["idCandidato"];
-$idProcessoSeletivo = $_POST["idProcesso"];
+$idProcessoSeletivo = $_POST["idProcessoSeletivo"];
 
 
 $rua = $_POST["rua"];
@@ -17,7 +17,7 @@ $telCel = $_POST["telCelular"];
 $telRes = $_POST["telResidencial"];
 $email = $_POST["emailContato"];
 
-$emrpesaInstituicao = $_POST["emrpesaInstituicao"];
+$empresaInstituicao = $_POST["empresaInstituicao"];
 $funcao = $_POST["funcao"];
 $ruaComercial = $_POST["ruaComercial"];
 $numeroComercial = $_POST["numeroComercial"];
@@ -37,10 +37,10 @@ $orientador1 = $_POST["orientador1"];
 $orientador2 = $_POST["orientador2"];
 $orientador3 = $_POST["orientador3"];
 
-$cursoGraduacao = $_POST["cursoGraduacao2"];
-$instituicao = $_POST["instituicao2"];
-$anoConclusao = $_POST["anoConclusao2"];
-$selectGrauAcademico = $_POST["selectGrauAcademico2"];
+$cursoGraduacao = $_POST["cursoGraduacao"];
+$instituicao = $_POST["instituicao"];
+$anoConclusao = $_POST["anoConclusao"];
+$selectGrauAcademico = $_POST["selectGrauAcademico"];
 $cursoGraduacao2 = $_POST["cursoGraduacao2"];
 $instituicao2 = $_POST["instituicao2"];
 $anoConclusao2 = $_POST["anoConclusao2"];
@@ -57,18 +57,23 @@ VALUES ('$rua','$numero','$complemento','$bairro','$cidade','$estado','$cep','$t
 $orientador1,$orientador2,$orientador3,'$cursoGraduacao','$instituicao','$anoConclusao','$selectGrauAcademico','$cursoGraduacao2',
 '$instituicao2','$anoConclusao2','$selectGrauAcademico2')";
 
-  
-$idMestrado_ca = "SELECT LAST_INSERT_ID from mestrado_ca";
-
-$sql2 = "INSERT INTO inscricao (idProcesso,idMestrado_ca,idCandidato)
-values ($idProcessoSeletivo,$idMestrado_ca,$idCandidato)";
-
 
 if ($con->query($sql) === TRUE){
+	$idMestrado_ca = mysqli_insert_id($con);
+	$sql2 = "INSERT INTO inscricao (idProcessoSeletivo,idMestrado_ca,idCandidato)
+	values ($idProcessoSeletivo,$idMestrado_ca,$idCandidato)";
 
+	if ($con->query($sql2) === TRUE){ 
 	echo "<script>alert('Inscrição realizada com sucesso!');window.location='IndexCandidato.php'</script>";
+	}
+    else {
+		echo "Erro para inserir: " . $con->error; 
+	}
 } else {
 	echo "Erro para inserir: " . $con->error; 
 }
 $con->close();
+
+
+
 ?>
