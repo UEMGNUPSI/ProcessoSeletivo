@@ -59,14 +59,14 @@ function validaSenha (input){
             <div class="form-group col-md-6">
               <label for="nome">Nome
               </label>
-              <input class="form-control" maxlength="250" name="nome" required="required" value="<?php echo $linha['nome']; ?>"type="text">
+              <input class="form-control" disabled maxlength="250" name="nome" required="required" value="<?php echo $linha['nome']; ?>"type="text">
           </div>
            
             <div class="form-group col-md-6">
               <label  for="email">E-mail
               </label>
               
-                <input class="form-control col-md-7 col-xs-12" name="email" maxlength="250" value="<?php echo $linha['email']?>" onblur="checarEmail();" type="text" required="required" >
+                <input class="form-control col-md-7 col-xs-12" disabled name="email" maxlength="250" value="<?php echo $linha['email']?>" onblur="checarEmail();" type="text" required="required" >
               
             </div>
 

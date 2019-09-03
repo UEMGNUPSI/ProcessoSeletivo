@@ -7,9 +7,9 @@ include_once("MenuCandidato.php");
 
 
  
-$result_InscreveProcesso="SELECT S.idProcessoSeletivo,S.nomeProcesso, S.descricao, S.dataInicio, S.dataFinal, S.horaInicio, P.nomeProfessor, C.nomeCurso 
-FROM processoseletivo S, curso C, Professor P
-WHERE S.idProfessor = P.idProfessor and S.idCurso = C.idCurso ";
+$result_InscreveProcesso="SELECT S.idProcessoSeletivo,S.nomeProcesso, S.descricao, S.dataInicio, S.dataFinal, S.horaInicio, S.horaFinal, P.nomeProfessor, C.nomeCurso, T.nomeTipoProcesso 
+FROM processoseletivo S, curso C, Professor P, tipoprocesso T
+WHERE S.idProfessor = P.idProfessor and S.idCurso = C.idCurso and S.idTipoProcesso = T.idTipoProcesso ";
 $resultado_InscreveProcesso = mysqli_query($con, $result_InscreveProcesso);
 
 ?>
@@ -66,10 +66,77 @@ $resultado_InscreveProcesso = mysqli_query($con, $result_InscreveProcesso);
         </button>
       </div>
       <div class="modal-body">
-        <label for=""><?php echo $rows_InscreveProcesso['nomeProcesso'];?></label>
+      <div class="x_panel">
+      <div class=" form-group col-md-14">
+      <label  for="">Nome Processo Seletivo:</label>
+     
+        <input type="text" class="form-control" disabled value="<?php echo $rows_InscreveProcesso['nomeProcesso'];?>">
+      
+      
+      </div>
+     
+      <div class=" form-group col-md-14">
+      <label for="">Descrição:</label>
+      
+      <input type="text" class="form-control" disabled value="<?php echo $rows_InscreveProcesso['descricao'];?>">
+     
+     
+      </div>
+      
+      <div class=" form-group col-md-6">
+      <label  for="">Data Início:</label>
+      
+      <input type="date" class="form-control" disabled value="<?php echo $rows_InscreveProcesso['dataInicio'];?>">
+      
+     
+      </div>
+      <div class=" form-group col-md-6">
+      <label  for="">Data Final:</label>
+      
+      <input type="date" class="form-control" disabled value="<?php echo $rows_InscreveProcesso['dataFinal'];?>">
+      
+     
+      </div>
+      <div class=" form-group col-md-6">
+      <label  for="">Hora Início:</label>
+      
+      <input type="timer" class="form-control" disabled value="<?php echo $rows_InscreveProcesso['horaInicio'];?>">
+      
+     
+      </div>
+      <div class=" form-group col-md-6">
+      <label  for="">Hora Final:</label>
+      
+      <input type="timer" class="form-control" disabled value="<?php echo $rows_InscreveProcesso['horaFinal'];?>">
+      
+     
+      </div>
+      <div class=" form-group col-md-14">
+      <label  for="">Coordenador:</label>
+      
+      <input type="text" class="form-control" disabled value="<?php echo $rows_InscreveProcesso['nomeProfessor'];?>">
+      
+     
+      </div>
+      <div class=" form-group col-md-6">
+      <label  for="">Tipo do Processo:</label>
+      
+      <input type="text" class="form-control" disabled value="<?php echo $rows_InscreveProcesso['nomeTipoProcesso'];?>">
+      
+     
+      </div>
+      <div class=" form-group col-md-6">
+      <label  for="">Curso:</label>
+      
+      <input type="text" class="form-control" disabled value="<?php echo $rows_InscreveProcesso['nomeCurso'];?>">
+      
+     
+      </div>
+  </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fecahar</button>
+      <?php  echo "<a class='btn btn-success'  href='Inscricao.php?idProcessoSeletivo=" .$rows_InscreveProcesso['idProcessoSeletivo'] .  "'>Inscrever-se</a>";  ?>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
        
       </div>
     </div>
